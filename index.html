@@ -8,140 +8,74 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0d0d12;--bg2:#12121a;--card:#15151f;
-  --border:rgba(255,255,255,0.07);
+  --bg:#0d0d12;--card:#15151f;--border:rgba(255,255,255,0.07);
   --purple:#7c3aed;--purpleL:#9d5ff7;--purpleXL:#c4b5fd;
-  --green:#4ade80;--greenD:#22c55e;
-  --text:#f0effe;--muted:#7c7a96;--mutedL:#a09dbf;
-  --r:14px;--rsm:10px;
+  --green:#4ade80;--text:#f0effe;--muted:#7c7a96;--r:14px;--rsm:10px;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;min-height:100vh}
 .wrap{max-width:680px;margin:0 auto;padding:0 20px}
 .grad{background:linear-gradient(130deg,var(--purpleL),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-/* NAV */
-nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 28px;
-  background:rgba(13,13,18,.9);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:100;
-}
-.logo{font-size:20px;font-weight:900;background:linear-gradient(135deg,#fff,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px}
-.nav-badge{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.04em}
-
-/* HERO */
-.hero{
-  padding:60px 0 40px;
-  text-align:center;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 0%,rgba(124,58,237,.14) 0%,transparent 70%),
-    var(--bg);
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.28);
-  color:var(--purpleXL);padding:7px 18px;border-radius:100px;
-  font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:24px;
-}
-.hero h1{font-size:clamp(28px,6vw,48px);font-weight:900;line-height:1.1;margin-bottom:18px;letter-spacing:-.5px}
-.hero-sub{font-size:clamp(15px,2.5vw,17px);color:var(--muted);max-width:520px;margin:0 auto 32px;line-height:1.7}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:rgba(13,13,18,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.logo{font-size:20px;font-weight:900;background:linear-gradient(135deg,#fff,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-badge{font-size:11px;font-weight:700;color:var(--muted)}
+.hero{padding:56px 0 36px;text-align:center;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(124,58,237,.13) 0%,transparent 70%),var(--bg)}
+.hero-badge{display:inline-flex;align-items:center;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.28);color:var(--purpleXL);padding:7px 18px;border-radius:100px;font-size:12px;font-weight:700;margin-bottom:22px}
+.hero h1{font-size:clamp(26px,6vw,46px);font-weight:900;line-height:1.1;margin-bottom:16px}
+.hero-sub{font-size:clamp(14px,2.5vw,16px);color:var(--muted);max-width:500px;margin:0 auto;line-height:1.75}
 .hero-sub strong{color:var(--text)}
-
-/* WHY CARDS - 3 reasons */
-.why{padding:0 0 48px}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.why-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:20px 16px;text-align:center;
-}
-.why-icon{font-size:24px;margin-bottom:8px}
-.why-card h3{font-size:13px;font-weight:700;margin-bottom:6px;line-height:1.3}
+.why{padding:32px 0 36px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 14px;text-align:center}
+.why-icon{font-size:22px;margin-bottom:8px}
+.why-card h3{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.3}
 .why-card p{font-size:12px;color:var(--muted);line-height:1.5}
-
-/* QUIZ */
-.quiz-wrap{padding:8px 0 60px}
-.quiz-label{
-  text-align:center;margin-bottom:24px;
-}
-.quiz-label-badge{
-  display:inline-block;
-  background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);
-  color:var(--green);padding:6px 16px;border-radius:100px;
-  font-size:11px;font-weight:700;letter-spacing:.06em;margin-bottom:10px;
-}
+.quiz-wrap{padding:4px 0 60px}
+.quiz-label{text-align:center;margin-bottom:22px}
+.ql-badge{display:inline-block;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);color:var(--green);padding:6px 16px;border-radius:100px;font-size:11px;font-weight:700;margin-bottom:8px}
 .quiz-label p{font-size:13px;color:var(--muted)}
-
-.quiz-box{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:22px;padding:32px 28px;
-}
-
-/* Progress */
-.prog-wrap{height:3px;background:rgba(255,255,255,.07);border-radius:2px;margin-bottom:10px;overflow:hidden}
-.prog-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--green));border-radius:2px;transition:width .4s ease;width:0%}
-.prog-label{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:24px}
-
-/* Question */
-.q-text{font-size:clamp(17px,3vw,21px);font-weight:700;margin-bottom:20px;line-height:1.35}
-.opts{display:flex;flex-direction:column;gap:10px}
-.opt{
-  display:flex;align-items:center;gap:14px;
-  background:rgba(255,255,255,.03);border:1.5px solid var(--border);
-  border-radius:var(--rsm);padding:14px 18px;cursor:pointer;
-  transition:border-color .18s,background .18s;
-  font-size:14px;line-height:1.45;
-  -webkit-tap-highlight-color:transparent;user-select:none;
-}
-.opt:hover{border-color:rgba(157,95,247,.5);background:rgba(124,58,237,.07)}
-.opt.sel{border-color:var(--purpleL);background:rgba(124,58,237,.13);color:#fff}
-.dot{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.15);flex-shrink:0;transition:all .18s;display:flex;align-items:center;justify-content:center}
+.quiz-box{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:30px 26px}
+.pw{height:3px;background:rgba(255,255,255,.07);border-radius:2px;margin-bottom:10px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--purple),var(--green));border-radius:2px;transition:width .4s ease;width:0%}
+.pl{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:22px}
+.hint{font-size:12px;color:var(--muted);margin-bottom:14px;font-style:italic}
+.qt{font-size:clamp(16px,3vw,20px);font-weight:700;margin-bottom:8px;line-height:1.35}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.03);border:1.5px solid var(--border);border-radius:var(--rsm);padding:13px 16px;cursor:pointer;transition:border-color .18s,background .18s;font-size:14px;line-height:1.4;-webkit-tap-highlight-color:transparent;user-select:none}
+.opt:hover{border-color:rgba(157,95,247,.45);background:rgba(124,58,237,.06)}
+.opt.sel{border-color:var(--purpleL);background:rgba(124,58,237,.12);color:#fff}
+.dot{width:18px;height:18px;flex-shrink:0;border:2px solid rgba(255,255,255,.15);transition:all .18s;display:flex;align-items:center;justify-content:center}
+.dot-r{border-radius:50%}
+.dot-c{border-radius:4px}
 .opt.sel .dot{border-color:var(--purpleL);background:var(--purpleL)}
-.opt.sel .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:#fff}
-
-/* Nav buttons */
-.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px}
+.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:10px}
 .btn{display:inline-flex;align-items:center;justify-content:center;border:none;cursor:pointer;font-family:inherit;font-weight:700;border-radius:100px;transition:transform .18s,box-shadow .18s,opacity .18s;white-space:nowrap;text-decoration:none}
 .btn:hover:not(:disabled){transform:translateY(-2px)}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);padding:11px 22px;font-size:13px}
-.btn-ghost:hover:not(:disabled){border-color:var(--purpleL);color:var(--text)}
-.btn-primary{background:linear-gradient(135deg,var(--purple),var(--purpleL));color:#fff;padding:14px 32px;font-size:15px;box-shadow:0 4px 20px rgba(124,58,237,.35);flex:1}
-.btn-primary:hover:not(:disabled){box-shadow:0 8px 30px rgba(124,58,237,.55)}
-.btn-tg{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#229ED9,#2AABEE);color:#fff;font-weight:700;font-size:16px;padding:18px 36px;border-radius:100px;text-decoration:none;transition:transform .18s,box-shadow .18s;box-shadow:0 4px 20px rgba(42,171,238,.35);border:none;cursor:pointer;font-family:inherit;width:100%;justify-content:center}
-.btn-tg:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(42,171,238,.55)}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
+.btn-g{background:transparent;color:var(--muted);border:1px solid var(--border);padding:11px 22px;font-size:13px}
+.btn-g:hover:not(:disabled){border-color:var(--purpleL);color:var(--text)}
+.btn-p{background:linear-gradient(135deg,var(--purple),var(--purpleL));color:#fff;padding:14px 30px;font-size:15px;box-shadow:0 4px 20px rgba(124,58,237,.32);flex:1}
+.btn-p:hover:not(:disabled){box-shadow:0 8px 28px rgba(124,58,237,.52)}
+.btn-tg{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#229ED9,#2AABEE);color:#fff;font-weight:700;font-size:16px;padding:18px 36px;border-radius:100px;text-decoration:none;transition:transform .18s,box-shadow .18s;box-shadow:0 4px 20px rgba(42,171,238,.32);width:100%}
+.btn-tg:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,171,238,.52)}
 .btn-tg svg{width:20px;height:20px;flex-shrink:0}
-
-/* RESULT */
-.result-box{
-  background:var(--card);border:1px solid rgba(124,58,237,.3);
-  border-radius:22px;padding:36px 28px;text-align:center;
-}
-.res-emoji{font-size:52px;line-height:1;margin-bottom:14px}
-.res-tag{font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--purpleXL);text-transform:uppercase;margin-bottom:8px}
-.res-title{font-size:clamp(22px,5vw,32px);font-weight:800;margin-bottom:14px;line-height:1.2}
-.res-desc{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto}
-.res-block{border-radius:var(--rsm);padding:14px 18px;margin-bottom:12px;font-size:14px;text-align:left;line-height:1.6}
-.res-problem{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18);color:#fca5a5}
-.res-fix{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.2);color:var(--green);margin-bottom:28px}
-.res-hint{font-size:13px;color:var(--muted);margin-bottom:14px}
-.res-note{margin-top:16px;font-size:12px;color:var(--muted)}
-
-/* FOOTER */
+.rbox{background:var(--card);border:1px solid rgba(124,58,237,.28);border-radius:22px;padding:36px 26px;text-align:center}
+.ri{font-size:48px;line-height:1;margin-bottom:12px}
+.rt{font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--purpleXL);text-transform:uppercase;margin-bottom:10px}
+.rh{font-size:clamp(20px,5vw,30px);font-weight:800;margin-bottom:14px;line-height:1.2}
+.rd{color:var(--muted);font-size:15px;line-height:1.75;margin-bottom:24px;max-width:460px;margin-left:auto;margin-right:auto}
+.rf{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.2);border-radius:var(--rsm);padding:14px 18px;margin-bottom:26px;font-size:14px;color:var(--green);text-align:left;line-height:1.6}
+.rn{margin-top:14px;font-size:12px;color:var(--muted)}
+.rhi{font-size:13px;color:var(--muted);margin-bottom:14px}
 footer{padding:28px 0;border-top:1px solid var(--border);text-align:center}
-.footer-logo{font-size:16px;font-weight:900;background:linear-gradient(135deg,#fff,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.fl{font-size:16px;font-weight:900;background:linear-gradient(135deg,#fff,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
 footer p{font-size:12px;color:var(--muted)}
-
-/* RESPONSIVE */
 @media(max-width:600px){
-  nav{padding:14px 16px}
-  .hero{padding:44px 0 32px}
+  nav{padding:13px 16px}
+  .hero{padding:40px 0 28px}
   .why-grid{grid-template-columns:1fr}
-  .quiz-box{padding:22px 16px}
-  .result-box{padding:26px 16px}
-  .btn-primary{padding:14px 24px;font-size:14px}
+  .quiz-box{padding:20px 14px}
+  .rbox{padding:26px 14px}
 }
 </style>
 </head>
@@ -152,254 +86,171 @@ footer p{font-size:12px;color:var(--muted)}
   <div class="nav-badge">Бесплатный тест</div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-badge">&#128293; Займёт 2 минуты</div>
-    <h1>Узнай, <span class="grad">почему ты не можешь достичь своей цели</span></h1>
-    <p class="hero-sub">
-      Пройди короткий тест — и получи персональный разбор.<br>
-      <strong>Какая твоя главная причина</strong> и что с этим делать прямо сейчас.
-    </p>
+    <h1>Узнай, <span class="grad">почему ты не можешь<br>достичь своей цели</span></h1>
+    <p class="hero-sub">Пройди короткий тест — и получи в Telegram <strong>персональный разбор:</strong> что именно тебе мешает и что с этим делать</p>
   </div>
 </section>
 
-<!-- WHY -->
 <section class="why">
   <div class="wrap">
     <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">&#128532;</div>
-        <h3>Срываешься снова и снова</h3>
-        <p>Держишься неделю, потом всё рушится — и непонятно почему</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">&#128260;</div>
-        <h3>Начинаешь с понедельника</h3>
-        <p>Мотивация есть, но без системы она гаснет через 10–14 дней</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">&#129335;</div>
-        <h3>Не знаешь свою причину</h3>
-        <p>У каждого она своя — без диагноза любые усилия вхолостую</p>
-      </div>
+      <div class="why-card"><div class="why-icon">&#128532;</div><h3>Срываешься снова и снова</h3><p>Держишься неделю, потом всё рушится — непонятно почему</p></div>
+      <div class="why-card"><div class="why-icon">&#128260;</div><h3>Начинаешь с понедельника</h3><p>Мотивация есть, но без системы гаснет через 10–14 дней</p></div>
+      <div class="why-card"><div class="why-icon">&#129335;</div><h3>Не знаешь свою причину</h3><p>У каждого она своя — без диагноза любые усилия вхолостую</p></div>
     </div>
   </div>
 </section>
 
-<!-- QUIZ -->
 <section class="quiz-wrap" id="quiz">
   <div class="wrap">
     <div class="quiz-label">
-      <div class="quiz-label-badge">ПРОЙДИ ТЕСТ</div>
-      <p>7 вопросов · без регистрации · персональный результат</p>
+      <div class="ql-badge">ПРОЙДИ ТЕСТ</div>
+      <p>7 вопросов · без регистрации · результат в Telegram</p>
     </div>
-
-    <!-- Quiz box -->
-    <div class="quiz-box" id="quizBox">
-      <div class="prog-wrap"><div class="prog-fill" id="pFill"></div></div>
-      <div class="prog-label" id="pLabel">Вопрос 1 из 7</div>
-      <div id="qBody"></div>
-      <div class="q-nav">
-        <button class="btn btn-ghost" id="btnPrev" onclick="prev()" style="display:none">&#8592; Назад</button>
-        <button class="btn btn-primary" id="btnNext" onclick="next()" disabled>Далее &#8594;</button>
+    <div class="quiz-box" id="qBox">
+      <div class="pw"><div class="pf" id="pf"></div></div>
+      <div class="pl" id="pl">Вопрос 1 из 7</div>
+      <div id="qb"></div>
+      <div class="qnav">
+        <button class="btn btn-g" id="bPrev" onclick="prev()" style="display:none">&#8592; Назад</button>
+        <button class="btn btn-p" id="bNext" onclick="next()" disabled>Далее &#8594;</button>
       </div>
     </div>
-
-    <!-- Result -->
-    <div id="resultBox" style="display:none"></div>
+    <div id="rb" style="display:none"></div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="footer-logo">FitState</div>
+    <div class="fl">FitState</div>
     <p>© 2025 FitState</p>
   </div>
 </footer>
 
 <script>
-const BOT = "@FitState_bot"; // ← замени на своего бота
-
-const Qs = [
-  {
-    q: "Какая твоя главная цель?",
-    opts: [
-      {t:"Похудеть и убрать лишний жир",       s:{em:2,so:1,me:1,st:1}},
-      {t:"Набрать мышечную массу",              s:{em:0,so:0,me:2,st:2}},
-      {t:"Улучшить форму и рельеф",             s:{em:1,so:1,me:2,st:1}},
-      {t:"Стать здоровее и энергичнее",        s:{em:1,so:2,me:1,st:1}},
-    ]
-  },
-  {
-    q: "Как давно ты пытаешься достичь этой цели?",
-    opts: [
-      {t:"Только начинаю",                             s:{em:0,so:0,me:0,st:2}},
-      {t:"Несколько месяцев — результата почти нет",   s:{em:1,so:1,me:2,st:1}},
-      {t:"Больше года — результат есть, но слабый",    s:{em:2,so:1,me:2,st:1}},
-      {t:"Много раз пробовал — всегда останавливаюсь", s:{em:1,so:1,me:1,st:3}},
-    ]
-  },
-  {
-    q: "Что чаще всего происходит, когда ты срываешься?",
-    opts: [
-      {t:"Стресс или плохое настроение — и я ем лишнее",  s:{em:4,so:0,me:0,st:0}},
-      {t:"В компании или на праздниках не могу отказаться", s:{em:0,so:4,me:0,st:0}},
-      {t:"Теряю мотивацию и бросаю через 1–2 недели",     s:{em:0,so:0,me:0,st:4}},
-      {t:"Питаюсь нормально, но вес всё равно стоит",     s:{em:0,so:0,me:4,st:0}},
-    ]
-  },
-  {
-    q: "Как ты относишься к тренировкам?",
-    opts: [
-      {t:"Тренируюсь, но результата нет",          s:{em:1,so:0,me:3,st:0}},
-      {t:"Хочу, но не нахожу время или мотивацию", s:{em:2,so:1,me:0,st:2}},
-      {t:"Начинаю — бросаю — начинаю снова",       s:{em:0,so:0,me:0,st:4}},
-      {t:"Почти не тренируюсь",                    s:{em:1,so:2,me:1,st:1}},
-    ]
-  },
-  {
-    q: "Как часто ты думаешь «завтра начну»?",
-    opts: [
-      {t:"Почти никогда — я дисциплинирован",      s:{em:0,so:0,me:2,st:0}},
-      {t:"Иногда, особенно после срыва",           s:{em:2,so:2,me:0,st:1}},
-      {t:"Часто — каждый понедельник новый старт", s:{em:1,so:1,me:0,st:4}},
-      {t:"Постоянно, и это меня уже раздражает",   s:{em:2,so:0,me:1,st:3}},
-    ]
-  },
-  {
-    q: "Какой у тебя режим дня?",
-    opts: [
-      {t:"Сплю 7–8 часов, режим стабильный",   s:{em:0,so:0,me:1,st:0}},
-      {t:"Сплю мало, много стресса на работе", s:{em:3,so:1,me:1,st:1}},
-      {t:"Режим хаотичный, ем когда придётся", s:{em:2,so:1,me:2,st:1}},
-      {t:"Работаю ночью или посменно",         s:{em:1,so:0,me:3,st:1}},
-    ]
-  },
-  {
-    q: "Что мешает тебе больше всего прямо сейчас?",
-    opts: [
-      {t:"Не знаю с чего начать и что делать",       s:{em:1,so:0,me:1,st:3}},
-      {t:"Знаю что делать, но не хватает силы воли", s:{em:3,so:2,me:0,st:1}},
-      {t:"Нет поддержки и нужного окружения",        s:{em:1,so:3,me:0,st:1}},
-      {t:"Всё перепробовал — ничего не работает",    s:{em:0,so:0,me:4,st:1}},
-    ]
-  }
+var BOT="FitState_bot";
+var Qs=[
+  {q:"Какую цель ты хочешь достичь?",hint:"Можно выбрать несколько",multi:true,opts:[
+    {t:"Похудеть и убрать лишний жир",s:{em:2,so:1,me:2,st:1}},
+    {t:"Набрать мышечную массу",s:{em:0,so:0,me:2,st:2}},
+    {t:"Улучшить форму и рельеф тела",s:{em:1,so:1,me:2,st:1}},
+    {t:"Стать здоровее и чувствовать больше энергии",s:{em:1,so:1,me:1,st:1}},
+    {t:"Выработать стабильные привычки и держать их",s:{em:1,so:1,me:0,st:3}},
+  ]},
+  {q:"Как давно ты пытаешься достичь этой цели?",multi:false,opts:[
+    {t:"Только начинаю, ещё не пробовал всерьёз",s:{em:0,so:0,me:0,st:2}},
+    {t:"Несколько месяцев — результата почти нет",s:{em:1,so:1,me:2,st:1}},
+    {t:"Больше года — есть сдвиги, но слабые",s:{em:2,so:1,me:2,st:1}},
+    {t:"Много раз начинал — всегда в итоге останавливаюсь",s:{em:1,so:1,me:1,st:3}},
+  ]},
+  {q:"Что чаще всего выбивает тебя из режима?",hint:"Имеется в виду и питание, и активность — всё вместе",multi:false,opts:[
+    {t:"Стресс, усталость или плохое настроение",s:{em:4,so:0,me:0,st:0}},
+    {t:"Компания, праздники, застолья — сложно держаться",s:{em:0,so:4,me:0,st:0}},
+    {t:"Теряю запал и бросаю через 1–2 недели",s:{em:0,so:0,me:0,st:4}},
+    {t:"Стараюсь, делаю всё правильно, но тело не меняется",s:{em:0,so:0,me:4,st:0}},
+  ]},
+  {q:"Как сейчас выглядит твоя активность?",hint:"Любое движение считается: зал, прогулки, бег, йога, велосипед",multi:false,opts:[
+    {t:"Двигаюсь регулярно, но результата почти нет",s:{em:1,so:0,me:3,st:0}},
+    {t:"Двигаюсь иногда — нет стабильного ритма",s:{em:1,so:1,me:1,st:2}},
+    {t:"Начинаю активно, потом бросаю — и снова по кругу",s:{em:0,so:0,me:0,st:4}},
+    {t:"Практически не двигаюсь и хочу это изменить",s:{em:1,so:1,me:1,st:2}},
+  ]},
+  {q:"Как часто ты откладываешь начало на «потом»?",hint:"«С понедельника», «с 1-го», «после праздников» — узнаёшь себя?",multi:false,opts:[
+    {t:"Не откладываю — у меня уже стабильный ритм",s:{em:0,so:0,me:2,st:0}},
+    {t:"Иногда бывает, особенно после срыва",s:{em:2,so:2,me:0,st:1}},
+    {t:"Часто — каждую неделю как будто новый старт",s:{em:1,so:1,me:0,st:4}},
+    {t:"Постоянно — и я сам уже устал от этого круга",s:{em:2,so:0,me:1,st:3}},
+  ]},
+  {q:"Как обычно выглядит твой день?",multi:false,opts:[
+    {t:"Стабильный режим, высыпаюсь, есть время на себя",s:{em:0,so:0,me:1,st:0}},
+    {t:"В целом нормально, но часто не хватает времени или сил",s:{em:1,so:1,me:1,st:1}},
+    {t:"Режим скачет — сон, еда и активность как получится",s:{em:2,so:1,me:2,st:2}},
+    {t:"Много работы, мало сна, стресс почти каждый день",s:{em:3,so:1,me:1,st:1}},
+  ]},
+  {q:"Что сейчас мешает тебе двигаться к своей цели?",hint:"Можно выбрать несколько — это поможет дать точный разбор",multi:true,opts:[
+    {t:"Не знаю с чего начать и как делать правильно",s:{em:1,so:0,me:1,st:3}},
+    {t:"Знаю что делать, но не хватает дисциплины",s:{em:3,so:1,me:0,st:2}},
+    {t:"В стрессовые моменты всё рушится",s:{em:4,so:0,me:0,st:0}},
+    {t:"Окружение не поддерживает или тянет назад",s:{em:0,so:3,me:0,st:1}},
+    {t:"Делаю всё правильно, но тело просто не реагирует",s:{em:0,so:0,me:4,st:0}},
+  ]},
 ];
-
-const ARCHS = {
-  em:{
-    emoji:"😰", title:"Эмоциональный едок",
-    desc:"Еда стала способом справляться со стрессом, тревогой и усталостью. Ты не слаб — у тебя просто нет инструмента, который заменит этот паттерн.",
-    problem:"🔴 Твоя причина: Эмоциональные триггеры управляют твоим выбором. Любая диета без работы с этим — временная.",
-    fix:"✅ Что с этим делать: Научиться распознавать триггеры и заменять еду другими способами снятия стресса — это реально и этому можно научиться.",
-    p:"emotional_eater"
-  },
-  so:{
-    emoji:"🍕", title:"Социальный заложник",
-    desc:"Наедине с собой ты держишься отлично. Но любое застолье, компания или праздник — и всё рушится. Тебе сложно отказывать и выбирать в социальных ситуациях.",
-    problem:"🔴 Твоя причина: Нет стратегии поведения в компании. Социальное давление каждый раз сводит прогресс к нулю.",
-    fix:"✅ Что с этим делать: Выработать конкретные сценарии для любой ситуации — застолье, корпоратив, кафе с друзьями. Это навык, не сила воли.",
-    p:"social_hostage"
-  },
-  me:{
-    emoji:"⚖️", title:"Метаболический скептик",
-    desc:"Ешь немного, стараешься, делаешь всё по инструкции — а результата нет. Кажется, что с твоим организмом что-то не так.",
-    problem:"🔴 Твоя причина: Скрытый профицит калорий или замедленный обмен из-за хронического недоедания. Стандартные советы не работают для твоей ситуации.",
-    fix:"✅ Что с этим делать: Точный расчёт под твои параметры и перезапуск обмена веществ через правильный дефицит — не меньше и не больше.",
-    p:"metabolic_skeptic"
-  },
-  st:{
-    emoji:"🔁", title:"Стартер-стопер",
-    desc:"В начале мотивация огромная — ты готов к любым жертвам. Но через 10–14 дней она испаряется, и всё начинается заново. Ты уже несколько раз проходил этот круг.",
-    problem:"🔴 Твоя причина: Работаешь исключительно на силе воли, а она конечна. Без внешней системы и структуры срыв — вопрос времени.",
-    fix:"✅ Что с этим делать: Заменить силу воли системой. Ежедневная структура, поддержка и чёткие точки контроля убирают зависимость от мотивации.",
-    p:"starter_stopper"
-  }
+var ARCHS={
+  em:{e:"😰",p:"emotional_eater"},
+  so:{e:"🍕",p:"social_hostage"},
+  me:{e:"⚖️",p:"metabolic_skeptic"},
+  st:{e:"🔁",p:"starter_stopper"},
 };
+var cur=0,ans=Qs.map(function(q){return q.multi?[]:null;});
 
-let cur = 0;
-let ans = new Array(Qs.length).fill(null);
-
-function render() {
-  const q = Qs[cur];
-  const pct = Math.round(cur / Qs.length * 100);
-  document.getElementById('pFill').style.width = pct + '%';
-  document.getElementById('pLabel').textContent = `Вопрос ${cur + 1} из ${Qs.length}`;
-
-  const prev = document.getElementById('btnPrev');
-  const next = document.getElementById('btnNext');
-  prev.style.display = cur > 0 ? 'inline-flex' : 'none';
-  next.disabled = ans[cur] === null;
-  next.textContent = cur === Qs.length - 1 ? 'Узнать результат →' : 'Далее →';
-
-  document.getElementById('qBody').innerHTML = `
-    <p class="q-text">${q.q}</p>
-    <div class="opts">
-      ${q.opts.map((o, i) => `
-        <div class="opt${ans[cur] === i ? ' sel' : ''}" onclick="pick(${i})">
-          <div class="dot"></div>
-          <span>${o.t}</span>
-        </div>
-      `).join('')}
-    </div>
-  `;
+function render(){
+  var q=Qs[cur];
+  var pct=Math.round(cur/Qs.length*100);
+  document.getElementById('pf').style.width=pct+'%';
+  document.getElementById('pl').textContent='Вопрос '+(cur+1)+' из '+Qs.length;
+  var hasAns=q.multi?ans[cur].length>0:ans[cur]!==null;
+  var nb=document.getElementById('bNext');
+  nb.disabled=!hasAns;
+  nb.textContent=cur===Qs.length-1?'Узнать свой тип →':'Далее →';
+  document.getElementById('bPrev').style.display=cur>0?'inline-flex':'none';
+  var h=q.hint?'<p class="hint">'+q.hint+'</p>':'';
+  var opts=q.opts.map(function(o,i){
+    var sel=q.multi?ans[cur].indexOf(i)!==-1:ans[cur]===i;
+    var dc=q.multi?'dot dot-c':'dot dot-r';
+    var inner=sel?(q.multi?'<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':'<div style="width:7px;height:7px;border-radius:50%;background:#fff"></div>'):'';
+    return '<div class="opt'+(sel?' sel':'')+'" onclick="pick('+i+')"><div class="'+dc+'">'+inner+'</div><span>'+o.t+'</span></div>';
+  }).join('');
+  document.getElementById('qb').innerHTML='<p class="qt">'+q.q+'</p>'+h+'<div class="opts">'+opts+'</div>';
 }
 
-function pick(i) {
-  ans[cur] = i;
-  document.querySelectorAll('.opt').forEach((el, j) => el.classList.toggle('sel', j === i));
-  document.getElementById('btnNext').disabled = false;
+function pick(i){
+  var q=Qs[cur];
+  if(q.multi){var idx=ans[cur].indexOf(i);if(idx===-1)ans[cur].push(i);else ans[cur].splice(idx,1);}
+  else{ans[cur]=i;}
+  render();
 }
-
-function next() {
-  if (ans[cur] === null) return;
-  if (cur < Qs.length - 1) { cur++; render(); }
-  else showResult();
+function next(){
+  var q=Qs[cur];
+  var ok=q.multi?ans[cur].length>0:ans[cur]!==null;
+  if(!ok)return;
+  if(cur<Qs.length-1){cur++;render();}else showResult();
 }
+function prev(){if(cur>0){cur--;render();}}
 
-function prev() {
-  if (cur > 0) { cur--; render(); }
-}
-
-function showResult() {
-  const tot = {em:0, so:0, me:0, st:0};
-  ans.forEach((ai, qi) => {
-    if (ai === null) return;
-    const s = Qs[qi].opts[ai].s;
-    Object.keys(s).forEach(k => tot[k] += s[k]);
+function showResult(){
+  var tot={em:0,so:0,me:0,st:0};
+  ans.forEach(function(ai,qi){
+    var q=Qs[qi];
+    var list=q.multi?ai:(ai!==null?[ai]:[]);
+    list.forEach(function(i){var s=q.opts[i].s;Object.keys(s).forEach(function(k){tot[k]+=s[k];});});
   });
-  const key = Object.entries(tot).sort((a, b) => b[1] - a[1])[0][0];
-  const a = ARCHS[key];
-  const url = `https://t.me/${BOT}?start=${a.p}`;
-
-  document.getElementById('quizBox').style.display = 'none';
-  document.querySelector('.quiz-label').style.display = 'none';
-
-  const rb = document.getElementById('resultBox');
-  rb.style.display = 'block';
-  rb.innerHTML = `
-    <div class="result-box">
-      <div class="res-emoji">${a.emoji}</div>
-      <div class="res-tag">Твой тип</div>
-      <h2 class="res-title">${a.title}</h2>
-      <p class="res-desc">${a.desc}</p>
-      <div class="res-block res-problem">${a.problem}</div>
-      <div class="res-block res-fix">${a.fix}</div>
-      <p class="res-hint">👇 Получи детальный разбор и следующий шаг в Telegram</p>
-      <a class="btn-tg" href="${url}" target="_blank">
-        <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.018 9.51c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.918 14.42l-2.95-.924c-.64-.203-.654-.64.136-.948l11.528-4.445c.535-.194 1.002.131.93.944z"/></svg>
-        Получить полный разбор
-      </a>
-      <p class="res-note">Бесплатно · Результат сохранится в боте</p>
-    </div>
-  `;
-  rb.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  localStorage.setItem('fitstate_arch', key);
-  localStorage.setItem('fitstate_arch_name', a.title);
+  var key=Object.entries(tot).sort(function(a,b){return b[1]-a[1];})[0][0];
+  var a=ARCHS[key];
+  var url='https://t.me/'+BOT+'?start='+a.p;
+  document.getElementById('qBox').style.display='none';
+  document.querySelector('.quiz-label').style.display='none';
+  var rb=document.getElementById('rb');
+  rb.style.display='block';
+  rb.innerHTML='<div class="rbox">'+
+    '<div class="ri">'+a.e+'</div>'+
+    '<div class="rt">Твой результат готов</div>'+
+    '<h2 class="rh">Мы определили<br>твой тип</h2>'+
+    '<p class="rd">Персональный разбор — кто ты, что именно тебе мешает и конкретный план действий — ждёт тебя в Telegram-боте.</p>'+
+    '<div class="rf">&#9989; Результат теста уже передан боту — он знает твой тип и сразу даст персональный разбор</div>'+
+    '<p class="rhi">&#128071; Нажми, чтобы получить разбор</p>'+
+    '<a class="btn-tg" href="'+url+'" target="_blank">'+
+      '<svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.018 9.51c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.918 14.42l-2.95-.924c-.64-.203-.654-.64.136-.948l11.528-4.445c.535-.194 1.002.131.93.944z"/></svg>'+
+      'Перейти в @FitState_bot'+
+    '</a>'+
+    '<p class="rn">Бесплатно · Результат сохраняется в боте</p>'+
+  '</div>';
+  rb.scrollIntoView({behavior:'smooth',block:'start'});
+  localStorage.setItem('fitstate_arch',key);
 }
-
-document.addEventListener('DOMContentLoaded', render);
+document.addEventListener('DOMContentLoaded',render);
 </script>
 </body>
 </html>
