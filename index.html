@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitState — Узнай, что мешает тебе достичь цели</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero" id="top">
+  <nav class="nav">
+    <div class="nav__logo">FitState</div>
+    <a href="#quiz" class="nav__cta btn btn--sm">Пройти тест</a>
+  </nav>
+
+  <div class="hero__inner container">
+    <div class="hero__badge">🔥 Бесплатный анализ за 2 минуты</div>
+    <h1 class="hero__title">
+      Узнай, <span class="grad">почему ты ещё<br>не достиг цели</span>
+    </h1>
+    <p class="hero__sub">
+      Пройди тест из 7 вопросов — получи персональный диагноз<br>
+      и узнай, каким ты будешь через <strong>2 месяца</strong> по нашей программе
+    </p>
+    <a href="#quiz" class="btn btn--primary btn--lg hero__btn">
+      Начать бесплатно →
+    </a>
+    <div class="hero__stats">
+      <div class="stat"><span class="stat__num">55 000+</span><span class="stat__label">участников</span></div>
+      <div class="stat__div"></div>
+      <div class="stat"><span class="stat__num">9 лет</span><span class="stat__label">опыта</span></div>
+      <div class="stat__div"></div>
+      <div class="stat"><span class="stat__num">4.9 ★</span><span class="stat__label">рейтинг</span></div>
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <div class="hero__results-row container">
+      <div class="rcard">
+        <div class="rcard__imgs">
+          <div class="rcard__img rcard__img--before" style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&q=80')"><span class="tag tag--before">ДО</span></div>
+          <div class="rcard__img rcard__img--after" style="background-image:url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=200&q=80')"><span class="tag tag--after">ПОСЛЕ</span></div>
+        </div>
+        <p class="rcard__name">Анна, −12 кг за 8 нед.</p>
+      </div>
+      <div class="rcard">
+        <div class="rcard__imgs">
+          <div class="rcard__img rcard__img--before" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200&q=80')"><span class="tag tag--before">ДО</span></div>
+          <div class="rcard__img rcard__img--after" style="background-image:url('https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=200&q=80')"><span class="tag tag--after">ПОСЛЕ</span></div>
+        </div>
+        <p class="rcard__name">Михаил, +8 кг мышц</p>
+      </div>
+      <div class="rcard">
+        <div class="rcard__imgs">
+          <div class="rcard__img rcard__img--before" style="background-image:url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=200&q=80')"><span class="tag tag--before">ДО</span></div>
+          <div class="rcard__img rcard__img--after" style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=200&q=80')"><span class="tag tag--after">ПОСЛЕ</span></div>
+        </div>
+        <p class="rcard__name">Елена, рельеф за 2 мес.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY SECTION ── -->
+<section class="why container">
+  <h2 class="section-title">Почему большинство <span class="grad">не достигает цели</span></h2>
+  <div class="why__grid">
+    <div class="why__card">
+      <div class="why__icon">😤</div>
+      <h3>Срываются снова и снова</h3>
+      <p>Диета держится 2 недели, потом стресс или праздник — и всё с нуля</p>
+    </div>
+    <div class="why__card">
+      <div class="why__icon">🔄</div>
+      <h3>Начинают с понедельника</h3>
+      <p>Мотивация есть, но без системы она исчезает через 10–14 дней</p>
+    </div>
+    <div class="why__card">
+      <div class="why__icon">🤷</div>
+      <h3>Не понимают свою причину</h3>
+      <p>У каждого своя точка сбоя — без диагноза любые усилия вхолостую</p>
+    </div>
+    <div class="why__card why__card--accent">
+      <div class="why__icon">✅</div>
+      <h3>FitState решает это</h3>
+      <p>Сначала находим твою причину — потом даём инструменты именно под неё</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUIZ ── -->
+<section class="quiz-section" id="quiz">
+  <div class="container">
+    <div class="quiz-header">
+      <div class="quiz-badge">БЕСПЛАТНЫЙ ТЕСТ</div>
+      <h2 class="section-title">Определи свой тип<br><span class="grad">и получи диагноз</span></h2>
+      <p class="quiz-sub">7 вопросов · 2 минуты · Персональный результат в Telegram</p>
+    </div>
+
+    <div class="quiz-box" id="quizBox">
+      <!-- Progress -->
+      <div class="quiz-progress" id="progressBar">
+        <div class="quiz-progress__fill" id="progressFill"></div>
+      </div>
+      <div class="quiz-step-label" id="stepLabel">Вопрос 1 из 7</div>
+
+      <!-- Questions container -->
+      <div class="quiz-questions" id="questionsContainer"></div>
+
+      <!-- Navigation -->
+      <div class="quiz-nav" id="quizNav">
+        <button class="btn btn--ghost" id="prevBtn" onclick="prevQuestion()" style="display:none">← Назад</button>
+        <button class="btn btn--primary" id="nextBtn" onclick="nextQuestion()" disabled>Далее →</button>
+      </div>
+    </div>
+
+    <!-- Result placeholder (shown after quiz) -->
+    <div class="quiz-result" id="quizResult" style="display:none"></div>
+  </div>
+</section>
+
+<!-- ── ARCHETYPES ── -->
+<section class="archetypes container">
+  <h2 class="section-title">Какой ты тип?</h2>
+  <p class="section-sub">Пройди тест и узнай свой архетип — и что именно с ним делать</p>
+  <div class="arch-grid">
+    <div class="arch-card">
+      <div class="arch-emoji">😰</div>
+      <h3 class="arch-title">Эмоциональный едок</h3>
+      <p class="arch-desc">Стресс, усталость, скука — и рука тянется к еде. Еда стала способом справляться с эмоциями.</p>
+      <div class="arch-fix">FitState убирает триггеры срывов</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-emoji">🍕</div>
+      <h3 class="arch-title">Социальный заложник</h3>
+      <p class="arch-desc">Дома всё хорошо, но любое застолье — провал. Не умеешь отказывать в компании.</p>
+      <div class="arch-fix">FitState даёт стратегию для любой ситуации</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-emoji">⚖️</div>
+      <h3 class="arch-title">Метаболический скептик</h3>
+      <p class="arch-desc">Ешь мало, занимаешься, но вес стоит. Кажется, что метаболизм сломан.</p>
+      <div class="arch-fix">FitState перезапускает обмен веществ</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-emoji">🔁</div>
+      <h3 class="arch-title">Стартер-стопер</h3>
+      <p class="arch-desc">Мотивация мощная в начале, через 2 недели исчезает. Всё с нуля — снова и снова.</p>
+      <div class="arch-fix">FitState создаёт систему вместо силы воли</div>
+    </div>
+  </div>
+  <div class="arch-cta">
+    <a href="#quiz" class="btn btn--primary btn--lg">Узнать свой тип →</a>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how container">
+  <h2 class="section-title">Как это работает</h2>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-num">01</div>
+      <h3>Проходишь тест</h3>
+      <p>7 вопросов — 2 минуты. Определяем твой архетип и главную причину</p>
+    </div>
+    <div class="how-arrow">→</div>
+    <div class="how-step">
+      <div class="how-num">02</div>
+      <h3>Получаешь диагноз</h3>
+      <p>В Telegram-боте — персональный разбор: что тебе мешает и почему</p>
+    </div>
+    <div class="how-arrow">→</div>
+    <div class="how-step">
+      <div class="how-num">03</div>
+      <h3>Видишь себя через 2 месяца</h3>
+      <p>Визуализация результата под твои параметры + инструменты программы</p>
+    </div>
+    <div class="how-arrow">→</div>
+    <div class="how-step">
+      <div class="how-num">04</div>
+      <h3>Присоединяешься к потоку</h3>
+      <p>Закрытый канал, куратор, сообщество — и реальный результат за 8 недель</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL PROOF ── -->
+<section class="proof container">
+  <h2 class="section-title">Результаты <span class="grad">участников FitState</span></h2>
+  <div class="reviews-grid">
+    <div class="review">
+      <div class="review__stars">★★★★★</div>
+      <p class="review__text">«За 8 недель минус 11 кг. Наконец-то поняла, почему раньше всегда срывалась — и исправила это»</p>
+      <div class="review__author">Юлия, 34 года</div>
+    </div>
+    <div class="review">
+      <div class="review__stars">★★★★★</div>
+      <p class="review__text">«Набрал 7 кг мышц, при этом сбросил жир. Думал, это невозможно одновременно»</p>
+      <div class="review__author">Александр, 28 лет</div>
+    </div>
+    <div class="review">
+      <div class="review__stars">★★★★★</div>
+      <p class="review__text">«16 недель — минус 12 кг жира. Анализы шикарные, полное восстановление печёночных показателей!»</p>
+      <div class="review__author">Марина, 41 год</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+  <div class="container final-cta__inner">
+    <h2>Готов узнать свою причину<br>и результат за 2 месяца?</h2>
+    <p>Бесплатно · 7 вопросов · Персональный результат в Telegram</p>
+    <a href="#quiz" class="btn btn--primary btn--lg">Пройти тест сейчас →</a>
+  </div>
+</section>
+
+<footer class="footer container">
+  <div class="footer__logo">FitState</div>
+  <p class="footer__copy">© 2025 FitState. Меняем тела — меняем жизни.</p>
+</footer>
+
+<script src="quiz.js"></script>
+</body>
+</html>
