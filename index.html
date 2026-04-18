@@ -3,79 +3,147 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>FitState — Узнайте, почему Вы не можете похудеть или нарастить мышцы</title>
+<title>FitState — Реалити-программа по трансформации тела</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0d0d12;--card:#15151f;--border:rgba(255,255,255,0.07);
+  --bg:#0d0d12;--bg2:#12121a;--card:#15151f;--card2:#1a1a28;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
   --purple:#7c3aed;--purpleL:#9d5ff7;--purpleXL:#c4b5fd;
-  --green:#4ade80;--text:#f0effe;--muted:#7c7a96;--r:14px;--rsm:10px;
+  --green:#4ade80;--greenD:#22c55e;--amber:#f59e0b;
+  --text:#f0effe;--muted:#7c7a96;--mutedL:#a09dbf;
+  --r:16px;--rsm:10px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;min-height:100vh}
-.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 .grad{background:linear-gradient(130deg,var(--purpleL),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:rgba(13,13,18,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-family:inherit;font-weight:700;border-radius:100px;text-decoration:none;transition:transform .18s,box-shadow .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--purple),var(--purpleL));color:#fff;padding:16px 36px;font-size:16px;box-shadow:0 4px 20px rgba(124,58,237,.35)}
+.btn-primary:hover{box-shadow:0 8px 28px rgba(124,58,237,.55)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border2);padding:14px 28px;font-size:14px}
+.btn-ghost:hover{border-color:var(--purpleL)}
+.btn-sm{padding:10px 22px;font-size:13px}
+section{padding:80px 0}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:rgba(13,13,18,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .logo{font-size:20px;font-weight:900;background:linear-gradient(135deg,#fff,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.nav-badge{font-size:11px;font-weight:700;color:var(--muted)}
-.hero{padding:56px 0 36px;text-align:center;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(124,58,237,.13) 0%,transparent 70%),var(--bg)}
-.hero-badge{display:inline-flex;align-items:center;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.28);color:var(--purpleXL);padding:7px 18px;border-radius:100px;font-size:12px;font-weight:700;margin-bottom:22px}
-.hero h1{font-size:clamp(26px,6vw,46px);font-weight:900;line-height:1.1;margin-bottom:16px}
-.hero-sub{font-size:clamp(14px,2.5vw,16px);color:var(--muted);max-width:500px;margin:0 auto;line-height:1.75}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .18s}
+.nav-links a:hover{color:var(--text)}
+
+/* HERO */
+.hero{padding:100px 0 80px;background:radial-gradient(ellipse 70% 60% at 60% 20%,rgba(124,58,237,.16) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(74,222,128,.09) 0%,transparent 60%),var(--bg);min-height:90vh;display:flex;align-items:center}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);color:var(--green);padding:7px 18px;border-radius:100px;font-size:12px;font-weight:700;margin-bottom:24px}
+.hero h1{font-size:clamp(32px,5vw,58px);font-weight:900;line-height:1.08;margin-bottom:20px}
+.hero-sub{font-size:17px;color:var(--muted);line-height:1.75;margin-bottom:36px;max-width:480px}
 .hero-sub strong{color:var(--text)}
-.why{padding:32px 0 36px}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 14px;text-align:center}
-.why-icon{font-size:22px;margin-bottom:8px}
-.why-card h3{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.3}
-.why-card p{font-size:12px;color:var(--muted);line-height:1.5}
-.quiz-wrap{padding:4px 0 60px}
-.quiz-label{text-align:center;margin-bottom:22px}
-.ql-badge{display:inline-block;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);color:var(--green);padding:6px 16px;border-radius:100px;font-size:11px;font-weight:700;margin-bottom:8px}
-.quiz-label p{font-size:13px;color:var(--muted)}
-.quiz-box{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:30px 26px}
-.pw{height:3px;background:rgba(255,255,255,.07);border-radius:2px;margin-bottom:10px;overflow:hidden}
-.pf{height:100%;background:linear-gradient(90deg,var(--purple),var(--green));border-radius:2px;transition:width .4s ease;width:0%}
-.pl{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:22px}
-.hint{font-size:12px;color:var(--muted);margin-bottom:14px;font-style:italic}
-.qt{font-size:clamp(16px,3vw,20px);font-weight:700;margin-bottom:8px;line-height:1.35}
-.opts{display:flex;flex-direction:column;gap:9px}
-.opt{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.03);border:1.5px solid var(--border);border-radius:var(--rsm);padding:13px 16px;cursor:pointer;transition:border-color .18s,background .18s;font-size:14px;line-height:1.4;-webkit-tap-highlight-color:transparent;user-select:none}
-.opt:hover{border-color:rgba(157,95,247,.45);background:rgba(124,58,237,.06)}
-.opt.sel{border-color:var(--purpleL);background:rgba(124,58,237,.12);color:#fff}
-.dot{width:18px;height:18px;flex-shrink:0;border:2px solid rgba(255,255,255,.15);transition:all .18s;display:flex;align-items:center;justify-content:center}
-.dot-r{border-radius:50%}
-.dot-c{border-radius:4px}
-.opt.sel .dot{border-color:var(--purpleL);background:var(--purpleL)}
-.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:10px}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:none;cursor:pointer;font-family:inherit;font-weight:700;border-radius:100px;transition:transform .18s,box-shadow .18s,opacity .18s;white-space:nowrap;text-decoration:none}
-.btn:hover:not(:disabled){transform:translateY(-2px)}
-.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
-.btn-g{background:transparent;color:var(--muted);border:1px solid var(--border);padding:11px 22px;font-size:13px}
-.btn-g:hover:not(:disabled){border-color:var(--purpleL);color:var(--text)}
-.btn-p{background:linear-gradient(135deg,var(--purple),var(--purpleL));color:#fff;padding:14px 30px;font-size:15px;box-shadow:0 4px 20px rgba(124,58,237,.32);flex:1}
-.btn-p:hover:not(:disabled){box-shadow:0 8px 28px rgba(124,58,237,.52)}
-.btn-tg{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#229ED9,#2AABEE);color:#fff;font-weight:700;font-size:16px;padding:18px 36px;border-radius:100px;text-decoration:none;transition:transform .18s,box-shadow .18s;box-shadow:0 4px 20px rgba(42,171,238,.32);width:100%}
-.btn-tg:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,171,238,.52)}
-.btn-tg svg{width:20px;height:20px;flex-shrink:0}
-.rbox{background:var(--card);border:1px solid rgba(124,58,237,.28);border-radius:22px;padding:36px 26px;text-align:center}
-.ri{font-size:48px;line-height:1;margin-bottom:12px}
-.rt{font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--purpleXL);text-transform:uppercase;margin-bottom:10px}
-.rh{font-size:clamp(20px,5vw,30px);font-weight:800;margin-bottom:14px;line-height:1.2}
-.rd{color:var(--muted);font-size:15px;line-height:1.75;margin-bottom:24px;max-width:460px;margin-left:auto;margin-right:auto}
-.rf{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.2);border-radius:var(--rsm);padding:14px 18px;margin-bottom:26px;font-size:14px;color:var(--green);text-align:left;line-height:1.6}
-.rn{margin-top:14px;font-size:12px;color:var(--muted)}
-.rhi{font-size:13px;color:var(--muted);margin-bottom:14px}
-footer{padding:28px 0;border-top:1px solid var(--border);text-align:center}
-.fl{font-size:16px;font-weight:900;background:linear-gradient(135deg,#fff,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
-footer p{font-size:12px;color:var(--muted)}
-@media(max-width:600px){
-  nav{padding:13px 16px}
-  .hero{padding:40px 0 28px}
-  .why-grid{grid-template-columns:1fr}
-  .quiz-box{padding:20px 14px}
-  .rbox{padding:26px 14px}
+.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column}
+.stat-n{font-size:26px;font-weight:800}
+.stat-l{font-size:12px;color:var(--muted)}
+.stat-div{width:1px;height:36px;background:var(--border2);align-self:center}
+
+/* Hero right — визуал */
+.hero-visual{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;text-align:center}
+.hv-emoji{font-size:32px;margin-bottom:10px}
+.hv-title{font-size:13px;font-weight:700;margin-bottom:6px}
+.hv-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.hv-card.accent{background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(74,222,128,.06));border-color:rgba(124,58,237,.3)}
+
+/* РЕЗУЛЬТАТЫ */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.res-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px}
+.res-num{font-size:42px;font-weight:900;margin-bottom:6px}
+.res-label{font-size:14px;color:var(--muted);margin-bottom:16px}
+.res-quote{font-size:13px;color:var(--mutedL);line-height:1.6;font-style:italic;border-left:2px solid var(--purple);padding-left:12px}
+.res-who{font-size:12px;font-weight:600;margin-top:12px;color:var(--purpleXL)}
+
+/* КАК РАБОТАЕТ */
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.how-step{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 22px;position:relative}
+.how-num{font-size:36px;font-weight:900;background:linear-gradient(135deg,var(--purpleL),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;line-height:1}
+.how-step h3{font-size:15px;font-weight:700;margin-bottom:8px}
+.how-step p{font-size:13px;color:var(--muted);line-height:1.6}
+.how-arr{position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--purple);font-size:20px;z-index:1}
+
+/* ОБ АВТОРЕ */
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-photo{background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(74,222,128,.1));border:1px solid rgba(124,58,237,.3);border-radius:24px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:80px}
+.about-badge{display:inline-block;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);color:var(--purpleXL);padding:6px 16px;border-radius:100px;font-size:11px;font-weight:700;margin-bottom:16px;letter-spacing:.04em}
+.about h2{font-size:clamp(24px,4vw,38px);font-weight:800;margin-bottom:16px;line-height:1.2}
+.about p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:16px}
+.about-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.fact{background:var(--card);border:1px solid var(--border);border-radius:var(--rsm);padding:14px 16px}
+.fact-n{font-size:22px;font-weight:800;margin-bottom:4px}
+.fact-l{font-size:12px;color:var(--muted)}
+
+/* ТАРИФЫ */
+.plans-section{background:var(--bg2)}
+.plans-header{text-align:center;margin-bottom:48px}
+.s-title{font-size:clamp(24px,4vw,40px);font-weight:800;line-height:1.2;margin-bottom:12px}
+.s-sub{font-size:16px;color:var(--muted);max-width:500px;margin:0 auto}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plan{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;display:flex;flex-direction:column;position:relative;transition:border-color .25s,transform .25s}
+.plan:hover{border-color:var(--border2);transform:translateY(-3px)}
+.plan.featured{background:var(--card2);border:1.5px solid var(--purpleL)}
+.plan.featured:hover{transform:translateY(-3px)}
+.featured-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--purple),var(--purpleL));color:#fff;font-size:11px;font-weight:800;padding:4px 18px;border-radius:100px;white-space:nowrap}
+.plan-icon{font-size:24px;margin-bottom:10px}
+.plan-name{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.plan-tagline{font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;line-height:1.3}
+.price{font-size:32px;font-weight:900}
+.price-period{font-size:12px;color:var(--muted);margin-bottom:20px}
+.features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1}
+.feat{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.45}
+.feat.off{color:var(--muted);opacity:.4}
+.feat-icon{width:17px;height:17px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.feat-icon.on{background:rgba(74,222,128,.15)}
+.feat-icon.off-ic{background:rgba(255,255,255,.05)}
+.plan-btn{display:block;width:100%;padding:14px;border-radius:100px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;border:none;text-align:center;text-decoration:none;transition:transform .18s,box-shadow .18s}
+.plan-btn:hover{transform:translateY(-2px)}
+.plan-btn.default{background:rgba(255,255,255,.07);color:var(--text);border:1px solid var(--border2)}
+.plan-btn.default:hover{background:rgba(255,255,255,.12)}
+.plan-btn.accent{background:linear-gradient(135deg,var(--purple),var(--purpleL));color:#fff;box-shadow:0 4px 20px rgba(124,58,237,.35)}
+.plan-btn.accent:hover{box-shadow:0 8px 28px rgba(124,58,237,.55)}
+.spots{font-size:11px;color:var(--amber);font-weight:600;text-align:center;margin-top:10px}
+
+/* ОТЗЫВЫ */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rev{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px}
+.rev-stars{color:#facc15;font-size:14px;margin-bottom:12px;letter-spacing:2px}
+.rev-text{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px;font-style:italic}
+.rev-author{font-size:12px;font-weight:700;color:var(--mutedL)}
+.rev-result{display:inline-block;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);color:var(--green);font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-top:8px}
+
+/* CTA */
+.cta-section{text-align:center;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(124,58,237,.14) 0%,transparent 70%),var(--bg2)}
+.cta-section h2{font-size:clamp(26px,4vw,44px);font-weight:800;margin-bottom:14px;line-height:1.2}
+.cta-section p{color:var(--muted);font-size:16px;margin-bottom:36px}
+
+/* FOOTER */
+footer{padding:36px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-size:18px;font-weight:900;background:linear-gradient(135deg,#fff,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:13px;color:var(--muted);text-decoration:none}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:12px;color:var(--muted)}
+
+@media(max-width:900px){
+  nav{padding:14px 16px}
+  .nav-links{display:none}
+  .hero-inner,.about-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .how-steps,.results-grid,.reviews-grid,.plans{grid-template-columns:1fr}
+  .how-arr{display:none}
+  .footer-inner{flex-direction:column;text-align:center}
 }
 </style>
 </head>
@@ -83,175 +151,271 @@ footer p{font-size:12px;color:var(--muted)}
 
 <nav>
   <div class="logo">FitState</div>
-  <div class="nav-badge">Бесплатный тест</div>
+  <div class="nav-links">
+    <a href="#how">Как работает</a>
+    <a href="#about">Об Иване</a>
+    <a href="#plans">Тарифы</a>
+    <a href="#reviews">Отзывы</a>
+  </div>
+  <a href="#plans" class="btn btn-primary btn-sm">Участвовать в реалити</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-badge">&#128293; Займёт 2 минуты</div>
-    <h1>Узнайте, <span class="grad">почему Вы не можете похудеть или нарастить мышцы</span></h1>
-    <p style="font-size:clamp(17px,3vw,22px);font-weight:700;color:var(--text);margin:0 auto 14px;max-width:500px">90% людей делают это неправильно</p>
-    <p class="hero-sub">Пройдите короткий тест — и получите в Telegram <strong>персональный разбор:</strong> что именно Вам мешает и что с этим делать</p>
-  </div>
-</section>
-
-<section class="why">
-  <div class="wrap">
-    <div class="why-grid">
-      <div class="why-card"><div class="why-icon">&#128532;</div><h3>Срываетесь снова и снова</h3><p>Держитесь неделю, потом всё рушится — непонятно почему</p></div>
-      <div class="why-card"><div class="why-icon">&#128260;</div><h3>Начинаете с понедельника</h3><p>Мотивация есть, но без системы гаснет через 10–14 дней</p></div>
-      <div class="why-card"><div class="why-icon">&#129335;</div><h3>Не знаете свою причину</h3><p>У каждого она своя — без диагноза любые усилия вхолостую</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="quiz-wrap" id="quiz">
-  <div class="wrap">
-    <div class="quiz-label">
-      <div class="ql-badge">ПРОЙДИТЕ ТЕСТ</div>
-      <p>7 вопросов · без регистрации · результат в Telegram</p>
-    </div>
-    <div class="quiz-box" id="qBox">
-      <div class="pw"><div class="pf" id="pf"></div></div>
-      <div class="pl" id="pl">Вопрос 1 из 7</div>
-      <div id="qb"></div>
-      <div class="qnav">
-        <button class="btn btn-g" id="bPrev" onclick="prev()" style="display:none">&#8592; Назад</button>
-        <button class="btn btn-p" id="bNext" onclick="next()" disabled>Далее &#8594;</button>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">🔥 Старт 11 мая · Набор открыт</div>
+        <h1>Реалити-программа<br>по трансформации<br><span class="grad">тела и состояния</span></h1>
+        <p class="hero-sub">8 недель — и Вы узнаете, что такое <strong>реальный результат.</strong> Не очередная диета. Не сила воли. Система, которая работает именно для Вашего типа.</p>
+        <div class="hero-btns">
+          <a href="#plans" class="btn btn-primary">Участвовать в реалити →</a>
+          <a href="https://vezuncheg.github.io/fitstate" class="btn btn-ghost">Пройти тест</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-n grad">55 000+</span><span class="stat-l">участников</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span class="stat-n grad">9 лет</span><span class="stat-l">опыта</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span class="stat-n grad">4.9 ★</span><span class="stat-l">рейтинг</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hv-card accent">
+          <div class="hv-emoji">🎯</div>
+          <div class="hv-title">Персональный план</div>
+          <div class="hv-desc">Под Ваш архетип и цель — не шаблон</div>
+        </div>
+        <div class="hv-card">
+          <div class="hv-emoji">👥</div>
+          <div class="hv-title">Живое сообщество</div>
+          <div class="hv-desc">Группа участников и куратор каждый день</div>
+        </div>
+        <div class="hv-card">
+          <div class="hv-emoji">📊</div>
+          <div class="hv-title">Научный подход</div>
+          <div class="hv-desc">Алгоритмы на основе рекомендаций ВОЗ</div>
+        </div>
+        <div class="hv-card accent">
+          <div class="hv-emoji">⚡</div>
+          <div class="hv-title">Результат с 1-й недели</div>
+          <div class="hv-desc">Первые изменения уже в начале пути</div>
+        </div>
       </div>
     </div>
-    <div id="rb" style="display:none"></div>
+  </div>
+</section>
+
+<!-- РЕЗУЛЬТАТЫ -->
+<section style="background:var(--bg2)">
+  <div class="wrap">
+    <h2 class="s-title" style="text-align:center;margin-bottom:12px">Результаты <span class="grad">участников</span></h2>
+    <p class="s-sub" style="text-align:center;margin-bottom:40px">Реальные люди. Реальные цифры. Никакого фотошопа.</p>
+    <div class="results-grid">
+      <div class="res-card">
+        <div class="res-num grad">−11 кг</div>
+        <div class="res-label">за 8 недель · похудение</div>
+        <div class="res-quote">«Наконец-то поняла, почему раньше всегда срывалась. Это не про силу воли — это про правильный инструмент»</div>
+        <div class="res-who">Юлия, 34 года · Эмоциональный едок</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num grad">+8 кг</div>
+        <div class="res-label">мышечной массы · набор</div>
+        <div class="res-quote">«Думал, что набрать массу и убрать жир одновременно невозможно. Оказалось — возможно, просто нужен правильный подход»</div>
+        <div class="res-who">Александр, 28 лет · Метаболический скептик</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num grad">−12 кг</div>
+        <div class="res-label">жира за 16 недель</div>
+        <div class="res-quote">«Анализы шикарные, полное восстановление показателей. Врач сказала: это чудо. Но это не чудо — это система»</div>
+        <div class="res-who">Марина, 41 год · Стартер-стопер</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК РАБОТАЕТ -->
+<section id="how">
+  <div class="wrap">
+    <h2 class="s-title" style="text-align:center;margin-bottom:12px">Как это <span class="grad">работает</span></h2>
+    <p class="s-sub" style="text-align:center;margin-bottom:48px">4 шага от «хочу изменений» до реального результата</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <h3>Пройдите тест</h3>
+        <p>Определяем Ваш тип — Эмоциональный едок, Социальный заложник, Метаболический скептик или Стартер-стопер</p>
+        <div class="how-arr">›</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <h3>Получите диагноз</h3>
+        <p>В Telegram-боте — персональный разбор: что именно Вам мешает и почему стандартные подходы не работали</p>
+        <div class="how-arr">›</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <h3>Выберите тариф</h3>
+        <p>Базовый, Расширенный или Личный — в зависимости от Вашего запроса и уровня поддержки</p>
+        <div class="how-arr">›</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">04</div>
+        <h3>8 недель реалити</h3>
+        <p>Закрытый канал, ежедневный контент, куратор на связи — и реальная трансформация тела и привычек</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ОБ АВТОРЕ -->
+<section id="about" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="about-inner">
+      <div class="about-photo">👨‍💻</div>
+      <div class="about">
+        <div class="about-badge">ОБ АВТОРЕ ПРОГРАММЫ</div>
+        <h2>Иван —<br><span class="grad">9 лет меняет тела</span><br>и жизни</h2>
+        <p>Основатель FitState, автор методики «Состояние» и разработчик персонального ассистента. Создал систему, которая работает не на силе воли, а на понимании причины.</p>
+        <p>Его подход — не диеты и изнурительные тренировки, а точная диагностика и инструменты под конкретный тип человека. Именно поэтому 55 000+ участников из 10 стран.</p>
+        <div class="about-facts">
+          <div class="fact"><div class="fact-n grad">55К+</div><div class="fact-l">участников</div></div>
+          <div class="fact"><div class="fact-n grad">9 лет</div><div class="fact-l">методика</div></div>
+          <div class="fact"><div class="fact-n grad">10</div><div class="fact-l">стран</div></div>
+          <div class="fact"><div class="fact-n grad">4.9★</div><div class="fact-l">средний рейтинг</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section id="plans" class="plans-section">
+  <div class="wrap">
+    <div class="plans-header">
+      <h2 class="s-title">Выберите <span class="grad">свой тариф</span></h2>
+      <p class="s-sub">Старт 11 мая · 8 недель · Результат гарантирован</p>
+    </div>
+    <div class="plans">
+
+      <!-- БАЗОВЫЙ -->
+      <div class="plan">
+        <div class="plan-icon">⚡</div>
+        <div class="plan-name">Базовый</div>
+        <div class="plan-tagline">Стартовый пинок</div>
+        <div class="price">9 900 ₽</div>
+        <div class="price-period">разовый платёж · 8 недель</div>
+        <ul class="features">
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Закрытый канал в Telegram</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный план под Ваш тип</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Чат участников</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Обратная связь от куратора</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Видеоконференции с Иваном</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Приложение «Ассистент Состояния»</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Планер и книга с автографом</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Индивидуальный созвон с Иваном</li>
+        </ul>
+        <a href="pay.html" class="plan-btn default">Выбрать тариф</a>
+      </div>
+
+      <!-- РАСШИРЕННЫЙ -->
+      <div class="plan featured">
+        <div class="featured-badge">⭐ Рекомендуем</div>
+        <div class="plan-icon">💎</div>
+        <div class="plan-name">Расширенный</div>
+        <div class="plan-tagline">Полное погружение</div>
+        <div class="price">14 900 ₽</div>
+        <div class="price-period">разовый платёж · 8 недель</div>
+        <ul class="features">
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Закрытый канал в Telegram</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный план под Ваш тип</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Чат участников</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Ежедневная обратная связь от куратора</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Еженедельные видеоконференции с Иваном</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Приложение «Ассистент Состояния»</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Планер и книга с автографом</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Индивидуальный созвон с Иваном</li>
+        </ul>
+        <a href="pay.html" class="plan-btn accent">Выбрать тариф →</a>
+      </div>
+
+      <!-- ЛИЧНЫЙ -->
+      <div class="plan">
+        <div class="plan-icon">👑</div>
+        <div class="plan-name">Личный</div>
+        <div class="plan-tagline">Иван лично со мной</div>
+        <div class="price">39 900 ₽</div>
+        <div class="price-period">разовый платёж · 8 недель</div>
+        <ul class="features">
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Закрытый канал в Telegram</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный план под Ваш тип</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Чат участников</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Ежедневная обратная связь от куратора</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Еженедельные видеоконференции с Иваном</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Приложение «Ассистент Состояния»</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Планер «Состояние» с автографом Ивана</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Книга «Состояние» с автографом Ивана</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Индивидуальный созвон с Иваном · 1 час</li>
+        </ul>
+        <a href="pay.html" class="plan-btn default">Выбрать тариф</a>
+        <div class="spots">⏳ Осталось 6 мест из 20</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section id="reviews">
+  <div class="wrap">
+    <h2 class="s-title" style="text-align:center;margin-bottom:40px">Говорят <span class="grad">участники</span></h2>
+    <div class="reviews-grid">
+      <div class="rev">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">«За 8 недель минус 11 кг. Наконец-то поняла, почему раньше всегда срывалась — и исправила это. Это не диета, это другой способ жить»</p>
+        <div class="rev-author">Юлия, 34 года</div>
+        <div class="rev-result">−11 кг за 8 нед.</div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">«Набрал 7 кг мышц и при этом избавился от жира. Думал, это невозможно. Оказалось — просто нужен правильный расчёт»</p>
+        <div class="rev-author">Александр, 28 лет</div>
+        <div class="rev-result">+7 кг мышц</div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">«Впервые в жизни прошёл программу до конца. Не бросил на второй неделе. Группа и куратор — это то, чего мне не хватало все эти годы»</p>
+        <div class="rev-author">Олег, 31 год</div>
+        <div class="rev-result">−8 кг · 8 недель</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <h2>Готовы начать<br><span class="grad">трансформацию?</span></h2>
+    <p>Старт 11 мая · Места ограничены · Результат гарантирован</p>
+    <a href="#plans" class="btn btn-primary" style="font-size:18px;padding:20px 48px">Участвовать в реалити →</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="fl">FitState</div>
-    <p>© 2025 FitState</p>
+    <div class="footer-inner">
+      <div class="footer-logo">FitState</div>
+      <div class="footer-links">
+        <a href="https://vezuncheg.github.io/fitstate">Пройти тест</a>
+        <a href="pay.html">Тарифы</a>
+        <a href="#plans">Участвовать</a>
+      </div>
+      <div class="footer-copy">© 2025 FitState</div>
+    </div>
   </div>
 </footer>
 
-<script>
-var BOT="FitState_bot";
-var Qs=[
-  {q:"Какую цель Вы хотите достичь?",hint:"Можно выбрать несколько",multi:true,opts:[
-    {t:"Похудеть и убрать лишний жир",s:{em:2,so:1,me:2,st:1}},
-    {t:"Набрать мышечную массу",s:{em:0,so:0,me:2,st:2}},
-    {t:"Улучшить форму и рельеф тела",s:{em:1,so:1,me:2,st:1}},
-    {t:"Стать здоровее и чувствовать больше энергии",s:{em:1,so:1,me:1,st:1}},
-    {t:"Выработать стабильные привычки и держать их",s:{em:1,so:1,me:0,st:3}},
-  ]},
-  {q:"Как давно Вы пытаетесь достичь этой цели?",multi:false,opts:[
-    {t:"Только начинаю, ещё не пробовал всерьёз",s:{em:0,so:0,me:0,st:2}},
-    {t:"Несколько месяцев — результата почти нет",s:{em:1,so:1,me:2,st:1}},
-    {t:"Больше года — есть сдвиги, но слабые",s:{em:2,so:1,me:2,st:1}},
-    {t:"Много раз начинал — всегда в итоге останавливаюсь",s:{em:1,so:1,me:1,st:3}},
-  ]},
-  {q:"Что чаще всего выбивает Вас из режима?",hint:"Имеется в виду и питание, и активность — всё вместе",multi:false,opts:[
-    {t:"Стресс, усталость или плохое настроение",s:{em:4,so:0,me:0,st:0}},
-    {t:"Компания, праздники, застолья — сложно держаться",s:{em:0,so:4,me:0,st:0}},
-    {t:"Теряю запал и бросаю через 1–2 недели",s:{em:0,so:0,me:0,st:4}},
-    {t:"Стараюсь, делаю всё правильно, но тело не меняется",s:{em:0,so:0,me:4,st:0}},
-  ]},
-  {q:"Как сейчас выглядит Ваша активность?",hint:"Любое движение считается: зал, прогулки, бег, йога, велосипед",multi:false,opts:[
-    {t:"Двигаюсь регулярно, но результата почти нет",s:{em:1,so:0,me:3,st:0}},
-    {t:"Двигаюсь иногда — нет стабильного ритма",s:{em:1,so:1,me:1,st:2}},
-    {t:"Начинаю активно, потом бросаю — и снова по кругу",s:{em:0,so:0,me:0,st:4}},
-    {t:"Практически не двигаюсь и хочу это изменить",s:{em:1,so:1,me:1,st:2}},
-  ]},
-  {q:"Как часто Вы откладываете начало на «потом»?",hint:"«С понедельника», «с 1-го», «после праздников» — узнаёте себя?",multi:false,opts:[
-    {t:"Не откладываю — у меня уже стабильный ритм",s:{em:0,so:0,me:2,st:0}},
-    {t:"Иногда бывает, особенно после срыва",s:{em:2,so:2,me:0,st:1}},
-    {t:"Часто — каждую неделю как будто новый старт",s:{em:1,so:1,me:0,st:4}},
-    {t:"Постоянно — и я сам уже устал от этого круга",s:{em:2,so:0,me:1,st:3}},
-  ]},
-  {q:"Как обычно выглядит Ваш день?",multi:false,opts:[
-    {t:"Стабильный режим, высыпаюсь, есть время на себя",s:{em:0,so:0,me:1,st:0}},
-    {t:"В целом нормально, но часто не хватает времени или сил",s:{em:1,so:1,me:1,st:1}},
-    {t:"Режим скачет — сон, еда и активность как получится",s:{em:2,so:1,me:2,st:2}},
-    {t:"Много работы, мало сна, стресс почти каждый день",s:{em:3,so:1,me:1,st:1}},
-  ]},
-  {q:"Что сейчас мешает Вам двигаться к своей цели?",hint:"Можно выбрать несколько — это поможет дать точный разбор",multi:true,opts:[
-    {t:"Не знаю с чего начать и как делать правильно",s:{em:1,so:0,me:1,st:3}},
-    {t:"Знаю что делать, но не хватает дисциплины",s:{em:3,so:1,me:0,st:2}},
-    {t:"В стрессовые моменты всё рушится",s:{em:4,so:0,me:0,st:0}},
-    {t:"Окружение не поддерживает или тянет назад",s:{em:0,so:3,me:0,st:1}},
-    {t:"Делаю всё правильно, но тело просто не реагирует",s:{em:0,so:0,me:4,st:0}},
-  ]},
-];
-var ARCHS={
-  em:{e:"😰",p:"emotional_eater"},
-  so:{e:"🍕",p:"social_hostage"},
-  me:{e:"⚖️",p:"metabolic_skeptic"},
-  st:{e:"🔁",p:"starter_stopper"},
-};
-var cur=0,ans=Qs.map(function(q){return q.multi?[]:null;});
-
-function render(){
-  var q=Qs[cur];
-  var pct=Math.round(cur/Qs.length*100);
-  document.getElementById('pf').style.width=pct+'%';
-  document.getElementById('pl').textContent='Вопрос '+(cur+1)+' из '+Qs.length;
-  var hasAns=q.multi?ans[cur].length>0:ans[cur]!==null;
-  var nb=document.getElementById('bNext');
-  nb.disabled=!hasAns;
-  nb.textContent=cur===Qs.length-1?'Узнать Ваш тип →':'Далее →';
-  document.getElementById('bPrev').style.display=cur>0?'inline-flex':'none';
-  var h=q.hint?'<p class="hint">'+q.hint+'</p>':'';
-  var opts=q.opts.map(function(o,i){
-    var sel=q.multi?ans[cur].indexOf(i)!==-1:ans[cur]===i;
-    var dc=q.multi?'dot dot-c':'dot dot-r';
-    var inner=sel?(q.multi?'<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5l3 3 6-7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':'<div style="width:7px;height:7px;border-radius:50%;background:#fff"></div>'):'';
-    return '<div class="opt'+(sel?' sel':'')+'" onclick="pick('+i+')"><div class="'+dc+'">'+inner+'</div><span>'+o.t+'</span></div>';
-  }).join('');
-  document.getElementById('qb').innerHTML='<p class="qt">'+q.q+'</p>'+h+'<div class="opts">'+opts+'</div>';
-}
-
-function pick(i){
-  var q=Qs[cur];
-  if(q.multi){var idx=ans[cur].indexOf(i);if(idx===-1)ans[cur].push(i);else ans[cur].splice(idx,1);}
-  else{ans[cur]=i;}
-  render();
-}
-function next(){
-  var q=Qs[cur];
-  var ok=q.multi?ans[cur].length>0:ans[cur]!==null;
-  if(!ok)return;
-  if(cur<Qs.length-1){cur++;render();}else showResult();
-}
-function prev(){if(cur>0){cur--;render();}}
-
-function showResult(){
-  var tot={em:0,so:0,me:0,st:0};
-  ans.forEach(function(ai,qi){
-    var q=Qs[qi];
-    var list=q.multi?ai:(ai!==null?[ai]:[]);
-    list.forEach(function(i){var s=q.opts[i].s;Object.keys(s).forEach(function(k){tot[k]+=s[k];});});
-  });
-  var key=Object.entries(tot).sort(function(a,b){return b[1]-a[1];})[0][0];
-  var a=ARCHS[key];
-  var url='https://t.me/'+BOT+'?start='+a.p;
-  document.getElementById('qBox').style.display='none';
-  document.querySelector('.quiz-label').style.display='none';
-  var rb=document.getElementById('rb');
-  rb.style.display='block';
-  rb.innerHTML='<div class="rbox">'+
-    '<div class="ri">'+a.e+'</div>'+
-    '<div class="rt">Ваш результат готов</div>'+
-    '<h2 class="rh">Мы определили<br>Ваш тип</h2>'+
-    '<p class="rd">Персональный разбор — кто Вы, что именно Вам мешает и конкретный план действий — ждёт Вас в Telegram-боте.</p>'+
-    '<div class="rf">&#9989; Результат теста уже передан боту — он знает Ваш тип и сразу даст персональный разбор</div>'+
-    '<p class="rhi">&#128071; Нажмите, чтобы получить разбор</p>'+
-    '<a class="btn-tg" href="'+url+'" target="_blank">'+
-      '<svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.018 9.51c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.918 14.42l-2.95-.924c-.64-.203-.654-.64.136-.948l11.528-4.445c.535-.194 1.002.131.93.944z"/></svg>'+
-      'Перейти в @FitState_bot'+
-    '</a>'+
-    '<p class="rn">Бесплатно · Результат сохраняется в боте</p>'+
-  '</div>';
-  rb.scrollIntoView({behavior:'smooth',block:'start'});
-  localStorage.setItem('fitstate_arch',key);
-}
-document.addEventListener('DOMContentLoaded',render);
-</script>
 </body>
 </html>
