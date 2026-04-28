@@ -147,7 +147,7 @@ footer a:hover{color:var(--text)}
 
     <!-- Promo banner (показывается только со скидкой) -->
     <div class="promo-banner" id="promoBanner">
-      <p>&#9889; <strong>Специальное предложение истекает через 1 час!</strong><br>Скидка 20% активна — выберите тариф прямо сейчас:</p>
+      <p>&#9889; <strong>Специальное предложение истекает через 1 час!</strong><br>Специальная цена активна — выберите тариф прямо сейчас:</p>
       <div class="timer-row">
         <div class="timer-block"><span id="tMin">59</span><span class="timer-label">МИН</span></div>
         <span class="timer-sep">:</span>
@@ -167,10 +167,10 @@ footer a:hover{color:var(--text)}
         <div class="plan-name">Базовый</div>
         <div class="plan-tagline">Стартовый пинок</div>
         <div class="price-row">
-          <span class="price" id="p0">9 900 ₽</span>
-          <span class="price-old" id="p0old" style="display:none">12 375 ₽</span>
+          <span class="price" id="p0">5 300 ₽</span>
+          <span class="price-old" id="p0old" style="display:none">5 300 ₽</span>
         </div>
-        <div class="price-save" id="p0save" style="display:none">Скидка 20%</div>
+        <div class="price-save" id="p0save" style="display:none">Специальная цена</div>
         <div class="price-period">разовый платёж · 8 недель</div>
         <ul class="features">
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
@@ -194,10 +194,10 @@ footer a:hover{color:var(--text)}
         <div class="plan-name">Расширенный</div>
         <div class="plan-tagline">Полное погружение</div>
         <div class="price-row">
-          <span class="price" id="p1">14 900 ₽</span>
-          <span class="price-old" id="p1old" style="display:none">18 625 ₽</span>
+          <span class="price" id="p1">7 900 ₽</span>
+          <span class="price-old" id="p1old" style="display:none">7 900 ₽</span>
         </div>
-        <div class="price-save" id="p1save" style="display:none">Скидка 20%</div>
+        <div class="price-save" id="p1save" style="display:none">Специальная цена</div>
         <div class="price-period">разовый платёж · 8 недель</div>
         <ul class="features">
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
@@ -220,10 +220,10 @@ footer a:hover{color:var(--text)}
         <div class="plan-name">Личный</div>
         <div class="plan-tagline">Иван лично со мной</div>
         <div class="price-row">
-          <span class="price" id="p2">39 900 ₽</span>
-          <span class="price-old" id="p2old" style="display:none">49 875 ₽</span>
+          <span class="price" id="p2">21 200 ₽</span>
+          <span class="price-old" id="p2old" style="display:none">21 200 ₽</span>
         </div>
-        <div class="price-save" id="p2save" style="display:none">Скидка 20%</div>
+        <div class="price-save" id="p2save" style="display:none">Специальная цена</div>
         <div class="price-period">разовый платёж · 8 недель</div>
         <ul class="features">
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
@@ -276,8 +276,8 @@ footer a:hover{color:var(--text)}
         <div class="faq-a">Оплата производится в полном объёме до начала реалити. После подтверждения оплаты Вы получаете ссылку на закрытый Telegram-канал потока и доступ ко всем материалам выбранного тарифа.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Скидка 20% — для всех? <span>+</span></div>
-        <div class="faq-a">Скидка 20% действует только для тех, кто пришёл из Telegram-бота в течение 1 часа после получения персонального результата теста. После истечения таймера действуют стандартные цены.</div>
+        <div class="faq-q" onclick="toggleFaq(this)">Специальная цена — для всех? <span>+</span></div>
+        <div class="faq-a">Специальная цена действует только для тех, кто пришёл из Telegram-бота в течение 1 часа после получения персонального результата теста. После истечения таймера действуют стандартные цены.</div>
       </div>
     </div>
   </div>
@@ -293,9 +293,9 @@ footer a:hover{color:var(--text)}
 <script>
 // ── ЦЕНЫ ──
 var PRICES = {
-  base:     { normal: 9900,  sale: 7920  },
-  extended: { normal: 14900, sale: 11920 },
-  personal: { normal: 39900, sale: 31920 },
+  base:     { normal: 5300,  sale: 4600  },
+  extended: { normal: 7900,  sale: 6900  },
+  personal: { normal: 21200, sale: 18500 },
 };
 
 // ── Форматирование ──
@@ -326,8 +326,8 @@ function applyPrices() {
     document.getElementById('p2save').style.display = 'inline-block';
 
     document.getElementById('promoBanner').classList.add('show');
-    document.getElementById('heroBadge').textContent = '⚡ Ваша скидка 20% активна — выберите тариф';
-    document.getElementById('heroSub').innerHTML = 'Специальное предложение истекает через час.<br>8 недель программы Реалити #ПП «Программа Преображения» — персональный план, закрытый канал, реальный результат.';
+    document.getElementById('heroBadge').textContent = '⚡ Ваша специальная цена активна — выберите тариф';
+    document.getElementById('heroSub').innerHTML = 'Специальная цена действует ещё 1 час.<br>8 недель программы Реалити #ПП «Программа Преображения» — персональный план, закрытый канал, реальный результат.';
 
     // Ссылки на оплату со скидкой
     document.getElementById('btn0').href = 'https://fitstate.ru/pay/base-sale';
@@ -365,7 +365,7 @@ function startTimer() {
     } else {
       // Таймер истёк — убираем скидку
       document.getElementById('promoBanner').innerHTML =
-        '<p>⏰ <strong>Время скидки истекло.</strong> Действуют стандартные цены.</p>';
+        '<p>⏰ <strong>Время специальной цены истекло.</strong> Действуют стандартные цены.</p>';
       isPromo = false;
       applyNormalPrices();
     }
