@@ -505,21 +505,47 @@ function submitPayment() {
     btn2: isPromo ? 'https://pay.yukassa.ru/personal-sale' : 'https://pay.yukassa.ru/personal',
   };
 
-  var baseUrl = planUrls[currentPlanBtn] || '#';
-  var payUrl = baseUrl +
-    '?name=' + encodeURIComponent(name) +
-    '&email=' + encodeURIComponent(email) +
-    '&tg_id=' + encodeURIComponent(tgId);
+  // Определяем тариф
+  var planMap = { btn0: 'base', btn1: 'extended', btn2: 'personal' };
+  var planKey = planMap[currentPlanBtn] || 'base';
 
   // Кнопка — состояние загрузки
   var btn = document.getElementById('payBtn');
-  btn.textContent = 'Переходим к оплате...';
+  btn.textContent = 'Создаём платёж...';
   btn.disabled = true;
 
-  // Переход на страницу оплаты
-  setTimeout(function() {
-    window.location.href = payUrl;
-  }, 500);
+  // Запрос к нашему серверу
+  var serverUrl = 'https://' + location.hostname.replace('pp-reality.ru', 'fitstate-bot.up.railway.app') + '/create-payment';
+  // Если тестируем локально — используем Railway напрямую
+  if (location.hostname === 'pp-reality.ru' || location.hostname === 'vezuncheg.github.io') {
+    serverUrl = 'https://fitstate-bot-production.up.railway.app/create-payment';
+  }
+
+  fetch(serverUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      plan: planKey,
+      tg_id: parseInt(tgId) || 0,
+      name: name,
+      email: email,
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.payment_url) {
+      window.location.href = data.payment_url;
+    } else {
+      btn.textContent = 'Перейти к оплате →';
+      btn.disabled = false;
+      alert('Ошибка: ' + (data.error || 'Попробуйте ещё раз'));
+    }
+  })
+  .catch(function(err) {
+    btn.textContent = 'Перейти к оплате →';
+    btn.disabled = false;
+    alert('Ошибка соединения. Попробуйте ещё раз.');
+  });
 }
 
 </script>
