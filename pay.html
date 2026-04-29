@@ -130,6 +130,33 @@ footer a:hover{color:var(--text)}
   .plan.featured{transform:none}
   nav{padding:14px 16px}
 }
+
+/* ── ФОРМА ОПЛАТЫ ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:#15151f;border:1px solid rgba(124,58,237,.35);border-radius:20px;padding:36px 32px;width:100%;max-width:460px;position:relative}
+.modal h3{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px}
+.modal-sub{font-size:14px;color:#7c7a96;margin-bottom:28px}
+.modal-plan{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:12px 16px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center}
+.modal-plan-name{font-size:14px;font-weight:700;color:#fff}
+.modal-plan-price{font-size:20px;font-weight:900;color:#c4b5fd}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:#7c7a96;margin-bottom:6px;letter-spacing:.04em;text-transform:uppercase}
+.form-group input{width:100%;background:#0d0d12;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 16px;font-family:inherit;font-size:15px;color:#fff;outline:none;transition:border-color .2s}
+.form-group input:focus{border-color:#7c3aed}
+.form-group input::placeholder{color:#555}
+.form-group input:disabled{color:#555;cursor:default}
+.tg-hint{font-size:11px;color:#4ade80;margin-top:4px}
+.modal-btn{width:100%;padding:16px;border-radius:100px;background:linear-gradient(135deg,#7c3aed,#9d5ff7);color:#fff;font-family:inherit;font-size:16px;font-weight:700;border:none;cursor:pointer;margin-top:8px;transition:transform .18s,box-shadow .18s}
+.modal-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,.45)}
+.modal-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#555;font-size:22px;cursor:pointer;line-height:1}
+.modal-close:hover{color:#fff}
+.form-error{font-size:12px;color:#f87171;margin-top:4px;display:none}
+.form-agree{font-size:12px;color:#7c7a96;text-align:center;margin-top:12px;line-height:1.5}
+.form-agree a{color:#7c3aed;text-decoration:none}
+@media(max-width:500px){.modal{padding:24px 20px}}
+
 </style>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta property="og:type" content="website">
@@ -156,7 +183,7 @@ footer a:hover{color:var(--text)}
   <div class="wrap">
     <div class="hero-badge" id="heroBadge">🎯 Выберите тариф и начните уже сегодня</div>
     <h1>Выберите <span class="grad">свой тариф</span></h1>
-    <p class="hero-sub" id="heroSub">8 недель программы Реалити #ПП «Программа Преображения» — персональный план под Ваш тип, закрытый канал и реальный результат</p>
+    <p class="hero-sub" id="heroSub">28 дней программы Реалити #ПП «Программа Преображения» — персональный план под Ваш тип, закрытый канал и реальный результат</p>
 
     <!-- Promo banner (показывается только со скидкой) -->
     <div class="promo-banner" id="promoBanner">
@@ -184,20 +211,20 @@ footer a:hover{color:var(--text)}
           <span class="price-old" id="p0old" style="display:none">5 300 ₽</span>
         </div>
         <div class="price-save" id="p0save" style="display:none">Специальная цена</div>
-        <div class="price-period">разовый платёж · 8 недель</div>
+        <div class="price-period">разовый платёж · 28 дней</div>
         <ul class="features">
-          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
+          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 28 дней</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Закрытый канал в Telegram</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный план под Ваш тип</li>
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Чат участников</li>
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Обратная связь от куратора</li>
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Еженедельные видеоконференции</li>
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Приложение «Ассистент Состояния»</li>
-          <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Планер «Состояние»</li>
-          <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Книга «Состояние»</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Планер «Состояния»</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Книга «Состояния»</li>
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Индивидуальный созвон с Иваном</li>
         </ul>
-        <a href="#" class="plan-btn default" id="btn0">Выбрать базовый</a>
+        <a href="#" class="plan-btn default" id="btn0" onclick="openModal('Стартовый пинок', 'btn0'); return false">Выбрать базовый</a>
       </div>
 
       <!-- РАСШИРЕННЫЙ (featured) -->
@@ -211,20 +238,21 @@ footer a:hover{color:var(--text)}
           <span class="price-old" id="p1old" style="display:none">7 900 ₽</span>
         </div>
         <div class="price-save" id="p1save" style="display:none">Специальная цена</div>
-        <div class="price-period">разовый платёж · 8 недель</div>
+        <div class="price-period">разовый платёж · 28 дней</div>
         <ul class="features">
-          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
+          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 28 дней</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Закрытый канал в Telegram</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный план под Ваш тип</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Чат участников</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Ежедневная обратная связь от куратора</li>
+          <li class="feat"><div class="feat-icon on"><svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ к клубу поддержки — 1 месяц</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Еженедельные видеоконференции с Иваном</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Приложение «Ассистент Состояния»</li>
-          <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Планер «Состояние»</li>
-          <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Книга «Состояние»</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Планер «Состояния»</li>
+          <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Книга «Состояния»</li>
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Индивидуальный созвон с Иваном</li>
         </ul>
-        <a href="#" class="plan-btn accent" id="btn1">Выбрать расширенный →</a>
+        <a href="#" class="plan-btn accent" id="btn1" onclick="openModal('Полное погружение', 'btn1'); return false">Выбрать расширенный →</a>
       </div>
 
       <!-- ЛИЧНЫЙ -->
@@ -237,20 +265,20 @@ footer a:hover{color:var(--text)}
           <span class="price-old" id="p2old" style="display:none">21 200 ₽</span>
         </div>
         <div class="price-save" id="p2save" style="display:none">Специальная цена</div>
-        <div class="price-period">разовый платёж · 8 недель</div>
+        <div class="price-period">разовый платёж · 28 дней</div>
         <ul class="features">
-          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 8 недель</li>
+          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Доступ в реалити на 28 дней</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Закрытый канал в Telegram</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Персональный план под Ваш тип</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Чат участников</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Ежедневная обратная связь от куратора</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Еженедельные видеоконференции с Иваном</li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Приложение «Ассистент Состояния»</li>
-          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Планер «Состояние» <span style="font-size:11px;color:var(--amber)">с автографом Ивана</span></li>
-          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Книга «Состояние» <span style="font-size:11px;color:var(--amber)">с автографом Ивана</span></li>
+          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Планер «Состояния» <span style="font-size:11px;color:var(--amber)">с автографом Ивана</span></li>
+          <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Книга «Состояния» <span style="font-size:11px;color:var(--amber)">с автографом Ивана</span></li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Индивидуальный созвон с Иваном <span style="font-size:11px;color:var(--amber);">★ первые 20 чел.</span></span></li>
         </ul>
-        <a href="#" class="plan-btn default" id="btn2">Выбрать личный</a>
+        <a href="#" class="plan-btn default" id="btn2" onclick="openModal('Иван лично со мной', 'btn2'); return false">Выбрать личный</a>
       </div>
 
     </div>
@@ -262,7 +290,7 @@ footer a:hover{color:var(--text)}
   <div class="wrap">
     <div class="guarantee">
       <h3>✅ Гарантия результата</h3>
-      <p>Если после 8 недель Вы не увидите результата — мы вернём деньги. Без вопросов. Мы уверены в программе, потому что она работает уже 24 года.</p>
+      <p>Если после 28 дней Вы не увидите результата — мы вернём деньги. Без вопросов. Мы уверены в программе, потому что она работает уже 24 года.</p>
     </div>
   </div>
 </section>
@@ -274,7 +302,7 @@ footer a:hover{color:var(--text)}
       <h2>Частые вопросы</h2>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Когда начинается поток? <span>+</span></div>
-        <div class="faq-a">Ближайший поток стартует <strong>11 мая</strong>. После оплаты Вы получите ссылку на закрытый канал и подготовительные материалы для подготовки к старту.</div>
+        <div class="faq-a">Реалити длится <strong>28 дней</strong>. После этого участники 2-го и 3-го тарифов переходят в закрытый клуб поддержки на 1 месяц. После оплаты Вы получите ссылку на закрытый канал и подготовительные материалы.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Чем отличается Расширенный от Базового? <span>+</span></div>
@@ -340,7 +368,7 @@ function applyPrices() {
 
     document.getElementById('promoBanner').classList.add('show');
     document.getElementById('heroBadge').textContent = '⚡ Ваша специальная цена активна — выберите тариф';
-    document.getElementById('heroSub').innerHTML = 'Специальная цена действует ещё 1 час.<br>8 недель программы Реалити #ПП «Программа Преображения» — персональный план, закрытый канал, реальный результат.';
+    document.getElementById('heroSub').innerHTML = 'Специальная цена действует ещё 1 час.<br>28 дней программы Реалити #ПП «Программа Преображения» — персональный план, закрытый канал, реальный результат.';
 
     // Ссылки на оплату со скидкой
     document.getElementById('btn0').href = 'https://fitstate.ru/pay/base-sale';
@@ -405,6 +433,137 @@ function toggleFaq(el) {
 }
 
 applyPrices();
+
+// ── ЛОГИКА ФОРМЫ ОПЛАТЫ ──
+var currentPlanBtn = null;
+
+function openModal(planName, btnId) {
+  currentPlanBtn = btnId;
+  var btn = document.getElementById(btnId);
+  var payUrl = btn ? btn.getAttribute('data-pay-url') || '' : '';
+
+  // Название и цена тарифа
+  var priceEl = document.getElementById(btnId === 'btn0' ? 'p0' : btnId === 'btn1' ? 'p1' : 'p2');
+  document.getElementById('modalPlanName').textContent = planName;
+  document.getElementById('modalPlanPrice').textContent = priceEl ? priceEl.textContent : '';
+
+  // Telegram ID из URL
+  var params = new URLSearchParams(window.location.search);
+  var tgId = params.get('tg_id');
+  var tgField = document.getElementById('fieldTgId');
+  var tgHint = document.getElementById('tgHint');
+  if (tgId) {
+    tgField.value = tgId;
+    tgField.disabled = true;
+    tgHint.style.display = 'block';
+    document.getElementById('tgAutoLabel').textContent = '— определён автоматически';
+  } else {
+    tgField.disabled = false;
+    tgField.placeholder = 'Введите Ваш Telegram ID';
+    tgHint.style.display = 'none';
+    document.getElementById('tgAutoLabel').textContent = '';
+  }
+
+  document.getElementById('payModal').classList.add('open');
+  document.getElementById('fieldName').focus();
+}
+
+function closeModal() {
+  document.getElementById('payModal').classList.remove('open');
+}
+
+// Закрытие по клику на фон — вешаем после загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('payModal');
+  if (modal) modal.addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+});
+
+function submitPayment() {
+  var name = document.getElementById('fieldName').value.trim();
+  var email = document.getElementById('fieldEmail').value.trim();
+  var tgId = document.getElementById('fieldTgId').value.trim();
+
+  var valid = true;
+
+  document.getElementById('errName').style.display = name ? 'none' : 'block';
+  if (!name) valid = false;
+
+  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  document.getElementById('errEmail').style.display = emailOk ? 'none' : 'block';
+  if (!emailOk) valid = false;
+
+  if (!valid) return;
+
+  // Формируем URL оплаты с данными пользователя
+  // Пока заглушка — потом заменим на реальный URL ЮКассы
+  var planUrls = {
+    btn0: isPromo ? 'https://pay.yukassa.ru/base-sale' : 'https://pay.yukassa.ru/base',
+    btn1: isPromo ? 'https://pay.yukassa.ru/extended-sale' : 'https://pay.yukassa.ru/extended',
+    btn2: isPromo ? 'https://pay.yukassa.ru/personal-sale' : 'https://pay.yukassa.ru/personal',
+  };
+
+  var baseUrl = planUrls[currentPlanBtn] || '#';
+  var payUrl = baseUrl +
+    '?name=' + encodeURIComponent(name) +
+    '&email=' + encodeURIComponent(email) +
+    '&tg_id=' + encodeURIComponent(tgId);
+
+  // Кнопка — состояние загрузки
+  var btn = document.getElementById('payBtn');
+  btn.textContent = 'Переходим к оплате...';
+  btn.disabled = true;
+
+  // Переход на страницу оплаты
+  setTimeout(function() {
+    window.location.href = payUrl;
+  }, 500);
+}
+
 </script>
+
+<!-- МОДАЛЬНОЕ ОКНО ФОРМЫ ОПЛАТЫ -->
+<div class="modal-overlay" id="payModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Оформление заказа</h3>
+    <p class="modal-sub">Введите данные для доступа к программе</p>
+
+    <div class="modal-plan" id="modalPlanInfo">
+      <span class="modal-plan-name" id="modalPlanName">Расширенный</span>
+      <span class="modal-plan-price" id="modalPlanPrice">7 900 ₽</span>
+    </div>
+
+    <div class="form-group">
+      <label>Ваше имя</label>
+      <input type="text" id="fieldName" placeholder="Иван Иванов" autocomplete="name">
+      <div class="form-error" id="errName">Введите Ваше имя</div>
+    </div>
+
+    <div class="form-group">
+      <label>Email для чека</label>
+      <input type="email" id="fieldEmail" placeholder="example@mail.ru" autocomplete="email">
+      <div class="form-error" id="errEmail">Введите корректный email</div>
+    </div>
+
+    <div class="form-group">
+      <label>Telegram ID <span id="tgAutoLabel"></span></label>
+      <input type="text" id="fieldTgId" placeholder="Определяется автоматически">
+      <div class="tg-hint" id="tgHint" style="display:none">✓ Определён автоматически из Telegram</div>
+    </div>
+
+    <button class="modal-btn" id="payBtn" onclick="submitPayment()">
+      Перейти к оплате →
+    </button>
+
+    <p class="form-agree">
+      Нажимая кнопку, Вы соглашаетесь с
+      <a href="offer.html" target="_blank">договором оферты</a> и
+      <a href="privacy.html" target="_blank">политикой конфиденциальности</a>
+    </p>
+  </div>
+</div>
+
 </body>
 </html>
