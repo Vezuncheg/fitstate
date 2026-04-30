@@ -416,6 +416,7 @@ function submitPayment() {
       tg_id: parseInt(tgId) || 0,
       name: name,
       email: email,
+      promo: isPromo,
     })
   })
   .then(function(r) { return r.json(); })
