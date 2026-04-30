@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108991199', 'ym');
+    ym(108991199, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108991199" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Реалити #ПП «Программа Преображения» — Узнайте, почему Вы не можете похудеть</title>
@@ -270,6 +282,8 @@ function showResult(){
   document.querySelector('.quiz-label').style.display='none';
   var rb=document.getElementById('rb');
   rb.style.display='block';
+  // Яндекс Метрика — цель: тест пройден
+  if(typeof ym !== 'undefined') ym(108991199, 'reachGoal', 'quiz_completed', {archetype: a.p});
   rb.innerHTML='<div class="rbox">'+
     '<div class="ri">'+a.e+'</div>'+
     '<div class="rt">Ваш результат готов</div>'+
@@ -277,7 +291,7 @@ function showResult(){
     '<p class="rd">Персональный разбор — кто Вы, что именно Вам мешает и конкретный план действий — ждёт Вас в Telegram-боте.</p>'+
     '<div class="rf">&#9989; Результат теста уже передан боту — он знает Ваш тип и сразу даст персональный разбор</div>'+
     '<p class="rhi">&#128071; Нажмите, чтобы получить разбор</p>'+
-    '<a class="btn-tg" href="'+url+'" target="_blank">'+
+    '<a class="btn-tg" href="'+url+'" target="_blank" onclick="if(typeof ym !== \'undefined\') ym(108991199, \'reachGoal\', \'tg_bot_click\', {archetype: a.p})">'+ 
       '<svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.018 9.51c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.918 14.42l-2.95-.924c-.64-.203-.654-.64.136-.948l11.528-4.445c.535-.194 1.002.131.93.944z"/></svg>'+
       'Перейти в @PP_reality_bot'+
     '</a>'+
