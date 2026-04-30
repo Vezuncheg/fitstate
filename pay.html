@@ -516,11 +516,8 @@ function submitPayment() {
   btn.disabled = true;
 
   // Запрос к нашему серверу
-  var serverUrl = 'https://' + location.hostname.replace('pp-reality.ru', 'fitstate-bot.up.railway.app') + '/create-payment';
-  // Если тестируем локально — используем Railway напрямую
-  if (location.hostname === 'pp-reality.ru' || location.hostname === 'vezuncheg.github.io') {
-    serverUrl = 'https://fitstate-bot-production.up.railway.app/create-payment';
-  }
+  // Всегда используем Railway напрямую
+  var serverUrl = 'https://fitstate-bot-production.up.railway.app/create-payment';
 
   fetch(serverUrl, {
     method: 'POST',
