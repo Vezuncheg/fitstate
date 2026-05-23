@@ -277,7 +277,14 @@ function showResult(){
   });
   var key=Object.entries(tot).sort(function(a,b){return b[1]-a[1];})[0][0];
   var a=ARCHS[key];
-  var url='https://t.me/'+BOT+'?start='+a.p;
+  // Берём UTM параметры из текущего URL страницы
+  var pageParams = new URLSearchParams(window.location.search);
+  var utmSource   = pageParams.get('utm_source')   || '';
+  var utmMedium   = pageParams.get('utm_medium')   || '';
+  var utmCampaign = pageParams.get('utm_campaign') || '';
+  // Передаём в бота: архетип|utm_source|utm_medium|utm_campaign
+  var startParam = a.p + '|' + utmSource + '|' + utmMedium + '|' + utmCampaign;
+  var url='https://t.me/'+BOT+'?start='+encodeURIComponent(startParam);
   document.getElementById('qBox').style.display='none';
   document.querySelector('.quiz-label').style.display='none';
   var rb=document.getElementById('rb');
