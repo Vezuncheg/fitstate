@@ -200,7 +200,7 @@ footer a:hover{color:var(--text)}
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Книга «Состояние»</li>
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Индивидуальный созвон с Иваном</li>
         </ul>
-        <a href="#" class="plan-btn default" id="btn0">Выбрать базовый</a>
+        <a href="#" class="plan-btn default" id="btn0" onclick="openModal('Стартовый пинок', 'btn0'); return false">Выбрать базовый</a>
       </div>
 
       <!-- РАСШИРЕННЫЙ (featured) -->
@@ -227,7 +227,7 @@ footer a:hover{color:var(--text)}
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Книга «Состояние»</li>
           <li class="feat off"><div class="feat-icon off-ic"><svg class="feat-x" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>Индивидуальный созвон с Иваном</li>
         </ul>
-        <a href="#" class="plan-btn accent" id="btn1">Выбрать расширенный →</a>
+        <a href="#" class="plan-btn accent" id="btn1" onclick="openModal('Полное погружение', 'btn1'); return false">Выбрать расширенный →</a>
       </div>
 
       <!-- ЛИЧНЫЙ -->
@@ -253,7 +253,7 @@ footer a:hover{color:var(--text)}
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Книга «Состояние» <span style="font-size:11px;color:var(--amber)">с автографом Ивана</span></li>
           <li class="feat"><div class="feat-icon on"><svg class="feat-check" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Индивидуальный созвон с Иваном <span style="font-size:11px;color:var(--amber);">★ первые 20 чел.</span></span></li>
         </ul>
-        <a href="#" class="plan-btn default" id="btn2">Выбрать личный</a>
+        <a href="#" class="plan-btn default" id="btn2" onclick="openModal('Иван лично со мной', 'btn2'); return false">Выбрать личный</a>
       </div>
 
     </div>
@@ -346,16 +346,12 @@ function applyPrices() {
     document.getElementById('heroSub').innerHTML = 'Специальная цена действует ещё 1 час.<br>8 недель программы Реалити #ПП «Программа Преображения» — персональный план, закрытый канал, реальный результат.';
 
     // Ссылки на оплату со скидкой
-    document.getElementById('btn0').href = 'https://pp-reality.ru/pay.html#base-sale';
-    document.getElementById('btn1').href = 'https://pp-reality.ru/pay.html#extended-sale';
-    document.getElementById('btn2').href = 'https://pp-reality.ru/pay.html#personal-sale';
+
 
     startTimer();
   } else {
     // Стандартные цены
-    document.getElementById('btn0').href = 'https://pp-reality.ru/pay.html#base';
-    document.getElementById('btn1').href = 'https://pp-reality.ru/pay.html#extended';
-    document.getElementById('btn2').href = 'https://pp-reality.ru/pay.html#personal';
+
   }
 }
 
